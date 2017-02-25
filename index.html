@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next muse" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -101,9 +99,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -151,7 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
+  <div class="container one-collumn sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -277,6 +275,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/2017/02/25/19.9 EntryMap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TLLANO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatar.jpg?raw=true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLLANO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/25/19.9 EntryMap/" itemprop="url">
+                  EntryMap
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-25T01:32:02+08:00">
+                2017-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/collection/" itemprop="url" rel="index">
+                    <span itemprop="name">collection</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/25/19.9 EntryMap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://le773.github.io/2017/02/25/19.9 EntryMap/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="19-9-EntryMap"><a href="#19-9-EntryMap" class="headerlink" title="19.9 EntryMap"></a>19.9 EntryMap</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">package com.java.num;</div><div class="line"></div><div class="line">import java.util.EnumMap;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">interface Command &#123;</div><div class="line">    void action(); // value</div><div class="line">&#125;</div><div class="line">enum AlarmPoints2 &#123;</div><div class="line">    START1, START2, LOBBY, OFFICE1, OFFICE2, OFFICE3, OFFICE4,</div><div class="line">    BATHROOM, UTILITY, KITCHEN</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class EnumMaps &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        EnumMap&lt;AlarmPoints2, Command&gt; em = new EnumMap&lt;AlarmPoints2, Command&gt;(AlarmPoints2.class);</div><div class="line">        em.put(AlarmPoints2.KITCHEN, new Command() &#123;</div><div class="line">            @Override</div><div class="line">            public void action() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                System.out.println(&quot;My KICHEN&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        em.put(AlarmPoints2.BATHROOM, new Command() &#123;</div><div class="line">            @Override</div><div class="line">            public void action() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                System.out.println(&quot;My BATHROOM&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        for(Map.Entry&lt;AlarmPoints2, Command&gt; e : em.entrySet()) &#123;</div><div class="line">            e.getValue().action();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://le773.github.io/2017/02/24/HashMap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,8 +475,40 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/collection/" itemprop="url" rel="index">
+                    <span itemprop="name">collection</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/24/HashMap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://le773.github.io/2017/02/24/HashMap/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
             
           
 
@@ -356,7 +536,6 @@
           
             <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div></pre></td><td class="code"><pre><div class="line">package com.java.coll;</div><div class="line"></div><div class="line">import java.util.AbstractMap;</div><div class="line">import java.util.AbstractSet;</div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Iterator;</div><div class="line">import java.util.List;</div><div class="line">import java.util.Map;</div><div class="line">import java.util.Set;</div><div class="line"></div><div class="line">public class Countries &#123;</div><div class="line">    public static final String[][] DATA = &#123;</div><div class="line">            &#123;&quot;A&quot;,&quot;a&quot;&#125;,</div><div class="line">            ....</div><div class="line">            &#123;&quot;Q&quot;,&quot;q&quot;&#125;</div><div class="line">    &#125;;</div><div class="line">    private static class FlyweightMap extends AbstractMap&lt;String, String&gt; &#123;</div><div class="line">        // start Entry entity</div><div class="line">        private static class Entry implements Map.Entry&lt;String, String&gt; &#123;</div><div class="line">            int index;</div><div class="line">            public Entry(int index) &#123;</div><div class="line">                // TODO Auto-generated constructor stub</div><div class="line">                this.index = index;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @Override</div><div class="line">            public boolean equals(Object obj) &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                </div><div class="line">                return DATA[index][0].equals(obj);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            @Override</div><div class="line">            public String getKey() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                return DATA[index][0];</div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public String getValue() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                return DATA[index][1];</div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public String setValue(String value) &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                throw new UnsupportedOperationException();</div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public int hashCode() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                return DATA[index][0].hashCode();</div><div class="line">            &#125;</div><div class="line">        &#125; // end Entry entity</div><div class="line">        </div><div class="line">        static class EntrySet extends AbstractSet&lt;Map.Entry&lt;String, String&gt;&gt; &#123; // start EntrySet</div><div class="line">            private int size;</div><div class="line">            public EntrySet(int size) &#123;</div><div class="line">                // TODO Auto-generated constructor stub</div><div class="line">                if(size &lt; 0)</div><div class="line">                    this.size = 0;</div><div class="line">                else if(size &gt; DATA.length)</div><div class="line">                    this.size = DATA.length;</div><div class="line">                else </div><div class="line">                    this.size = size;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line"></div><div class="line">            @Override</div><div class="line">            public Iterator&lt;java.util.Map.Entry&lt;String, String&gt;&gt; iterator() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                return new Iter();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @Override</div><div class="line">            public int size() &#123;</div><div class="line">                // TODO Auto-generated method stub</div><div class="line">                return size;</div><div class="line">            &#125;</div><div class="line">            // start iterator</div><div class="line">            private class Iter implements Iterator&lt;Map.Entry&lt;String, String&gt;&gt; &#123;</div><div class="line">                private Entry entry = new Entry(-1);</div><div class="line">                @Override</div><div class="line">                public boolean hasNext() &#123;</div><div class="line">                    // TODO Auto-generated method stub</div><div class="line">                    return entry.index != size - 1;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public java.util.Map.Entry&lt;String, String&gt; next() &#123;</div><div class="line">                    // TODO Auto-generated method stub</div><div class="line">                    entry.index++;</div><div class="line">                    return entry;</div><div class="line">                &#125;</div><div class="line">                @Override</div><div class="line">                public void remove() &#123;</div><div class="line">                    // TODO Auto-generated method stub</div><div class="line">					// Iterator.super.remove();</div><div class="line">                    throw new UnsupportedOperationException();</div><div class="line">                &#125;</div><div class="line">            &#125; // end iterators</div><div class="line">        &#125; // end EntrySet</div><div class="line">        </div><div class="line">        private static Set&lt;Map.Entry&lt;String, String&gt;&gt; entries = new EntrySet(DATA.length);</div><div class="line">        @Override</div><div class="line">        public Set&lt;java.util.Map.Entry&lt;String, String&gt;&gt; entrySet() &#123;</div><div class="line">            // TODO Auto-generated method stub</div><div class="line">            return entries;</div><div class="line">        &#125;</div><div class="line">    &#125; // end define self map</div><div class="line">    </div><div class="line">    static Map&lt;String, String&gt; select(final int size) &#123;</div><div class="line">        return new FlyweightMap() &#123;</div><div class="line">            public Set&lt;Map.Entry&lt;String, String&gt;&gt; entrySet() &#123;</div><div class="line">                return new EntrySet(size);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    // init constructor</div><div class="line">    static Map&lt;String, String&gt; mymap = new FlyweightMap();</div><div class="line">    public static Map&lt;String, String&gt; capitals() &#123;</div><div class="line">        return mymap;</div><div class="line">    &#125;</div><div class="line">    // init map capitals</div><div class="line">    public static Map&lt;String, String&gt; capitals(int size) &#123;</div><div class="line">        return select(size);</div><div class="line">    &#125;</div><div class="line">    //</div><div class="line">    static List&lt;String&gt; names = new ArrayList&lt;String&gt;(mymap.keySet());</div><div class="line">    public static List&lt;String&gt; names() &#123;</div><div class="line">        return names;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static List&lt;String&gt; names(int size) &#123;</div><div class="line">        return new ArrayList&lt;String&gt;(select(size).keySet());</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    // main</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        System.out.println(capitals(10));</div><div class="line">        System.out.println(names(10));</div><div class="line">        System.out.println(new HashMap&lt;String,String&gt;(capitals(3)));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="自定义HashMap类图"><a href="#自定义HashMap类图" class="headerlink" title="自定义HashMap类图"></a>自定义HashMap类图</h4><p><img src="https://raw.githubusercontent.com/le773/le773Page/resource/clipboard.png" alt="MyHashMap"></p>
-<h5 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h5><p>debug</p>
 
           
         
@@ -433,14 +612,28 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
