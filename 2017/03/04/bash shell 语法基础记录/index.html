@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;#123;m_branch_list&amp;#125; $&amp;#123;">
+<meta name="description" content="文章内容：for循环 数组 shift 字符串截断 参数含义 
+for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bash shell 语法记录">
 <meta property="og:url" content="https://le773.github.io/2017/03/04/bash shell 语法基础记录/index.html">
 <meta property="og:site_name" content="TLLANO">
-<meta property="og:description" content="for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;#123;m_branch_list&amp;#125; $&amp;#123;">
-<meta property="og:updated_time" content="2017-03-04T06:47:04.324Z">
+<meta property="og:description" content="文章内容：for循环 数组 shift 字符串截断 参数含义 
+for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;">
+<meta property="og:updated_time" content="2017-03-04T06:50:40.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bash shell 语法记录">
-<meta name="twitter:description" content="for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;#123;m_branch_list&amp;#125; $&amp;#123;">
+<meta name="twitter:description" content="文章内容：for循环 数组 shift 字符串截断 参数含义 
+for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;">
 
 
 
@@ -383,7 +386,8 @@
       
 
       
-        <h5 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h5><h6 id="情形-a1"><a href="#情形-a1" class="headerlink" title="情形: a1"></a>情形: a1</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">i=$#</div><div class="line">i=$((i-1))</div><div class="line"></div><div class="line">m_branch_list=&quot;&quot;</div><div class="line">for((index=1;index&lt;=$i;index++));do</div><div class="line">    m_branch_name=$(eval echo \$$index)  </div><div class="line">    m_branch_list=&quot;$&#123;m_branch_list&#125; $&#123;m_branch_name&#125;&quot;    </div><div class="line">    hct_code_start_branch $&#123;m_branch_name&#125;</div><div class="line">    hct_code_download $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+        <p>文章内容：<br>for循环 数组 shift 字符串截断 参数含义 </p>
+<h5 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h5><h6 id="情形-a1"><a href="#情形-a1" class="headerlink" title="情形: a1"></a>情形: a1</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">i=$#</div><div class="line">i=$((i-1))</div><div class="line"></div><div class="line">m_branch_list=&quot;&quot;</div><div class="line">for((index=1;index&lt;=$i;index++));do</div><div class="line">    m_branch_name=$(eval echo \$$index)  </div><div class="line">    m_branch_list=&quot;$&#123;m_branch_list&#125; $&#123;m_branch_name&#125;&quot;    </div><div class="line">    hct_code_start_branch $&#123;m_branch_name&#125;</div><div class="line">    hct_code_download $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
 <h6 id="情形-a2"><a href="#情形-a2" class="headerlink" title="情形: a2"></a>情形: a2</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for m_branch_name in $&#123;m_branch_list[@]&#125;; do</div><div class="line">    hct_code_merge $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
 <h6 id="情形-a3-插入多个集合"><a href="#情形-a3-插入多个集合" class="headerlink" title="情形: a3 插入多个集合"></a>情形: a3 插入多个集合</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for m_file in $&#123;m_path_makefile&#125; \</div><div class="line">              $&#123;m_system_build_file&#125; \</div><div class="line">              $&#123;m_debug_file_kernel&#125;; do</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for m_tmp in *.log *.xml *.ini out; do</div><div class="line">    m_run_cmd=&quot;rm -rf $&#123;m_tmp&#125;&quot;</div><div class="line">    hct_print_green_string &quot;$&#123;m_run_cmd&#125;&quot;</div><div class="line">    $&#123;m_run_cmd&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
