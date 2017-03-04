@@ -87,37 +87,40 @@
 
 
 
-<meta name="description" content="排除/包括文件或者目录
+<meta name="description" content="grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
+
 –include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
 –exclude “README” 排除所有README文件 
 –include-dir 仅在某些目录中搜索 
 –exclude-dir 排除某些目录 
 –exclude-from FILE 从文件FILE中读取需要排除的文件列表
 
-#######  例子1grep -nHR &amp;quot;class">
+例子1gre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="grep_include sed 使用">
 <meta property="og:url" content="https://le773.github.io/2017/03/04/grep_include sed 用法/index.html">
 <meta property="og:site_name" content="TLLANO">
-<meta property="og:description" content="排除/包括文件或者目录
+<meta property="og:description" content="grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
+
 –include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
 –exclude “README” 排除所有README文件 
 –include-dir 仅在某些目录中搜索 
 –exclude-dir 排除某些目录 
 –exclude-from FILE 从文件FILE中读取需要排除的文件列表
 
-#######  例子1grep -nHR &amp;quot;class">
-<meta property="og:updated_time" content="2017-03-04T06:12:18.644Z">
+例子1gre">
+<meta property="og:updated_time" content="2017-03-04T06:17:32.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grep_include sed 使用">
-<meta name="twitter:description" content="排除/包括文件或者目录
+<meta name="twitter:description" content="grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
+
 –include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
 –exclude “README” 排除所有README文件 
 –include-dir 仅在某些目录中搜索 
 –exclude-dir 排除某些目录 
 –exclude-from FILE 从文件FILE中读取需要排除的文件列表
 
-#######  例子1grep -nHR &amp;quot;class">
+例子1gre">
 
 
 
@@ -404,14 +407,15 @@
       
 
       
-        <h6 id="排除-包括文件或者目录"><a href="#排除-包括文件或者目录" class="headerlink" title="排除/包括文件或者目录"></a>排除/包括文件或者目录</h6><ul>
+        <h6 id="grep-include-使用"><a href="#grep-include-使用" class="headerlink" title="grep include 使用"></a>grep include 使用</h6><p>作用：缩小搜索范围, 排除/包括文件或者目录</p>
+<ul>
 <li>–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；</li>
 <li>–exclude “README” 排除所有README文件 </li>
 <li>–include-dir 仅在某些目录中搜索 </li>
 <li>–exclude-dir 排除某些目录 </li>
 <li>–exclude-from FILE 从文件FILE中读取需要排除的文件列表</li>
 </ul>
-<p>#######  例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -nHR &quot;class.*InputManager&quot; --exclude=*&#123;xml,txt,jd,html&#125; --exclude-dir .git</div></pre></td></tr></table></figure></p>
+<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -nHR &quot;class.*InputManager&quot; --exclude=*&#123;xml,txt,jd,html&#125; --exclude-dir .git</div></pre></td></tr></table></figure></p>
 <hr>
 <h6 id="set"><a href="#set" class="headerlink" title="set"></a>set</h6><ul>
 <li><p>set -x 是开启</p>
@@ -424,10 +428,10 @@
 </li>
 </ul>
 <hr>
-<h6 id="批量替换"><a href="#批量替换" class="headerlink" title="批量替换"></a>批量替换</h6><p>sed -i “s/查找字段/替换字段/g” <code>grep 查找字段 -rl 路径</code></p>
+<h6 id="批量替换"><a href="#批量替换" class="headerlink" title="批量替换"></a>批量替换</h6><p>sed -i “s/查找字段/替换字段/g”  <code>grep 查找字段 -rl 路径</code></p>
 <p>sed -i “s/查找字段/替换字段/g” ./*</p>
 <p>若字符串中包含“/“等特殊字符串，可以:</p>
-<p>sed -i “s#查找字段#替换字段#g” <code>grep 查找字段 -rl 路径</code></p>
+<p>sed -i “s#查找字段#替换字段#g”  <code>grep 查找字段 -rl 路径</code></p>
 <p>sed -i “s#查找字段#替换字段#g” ./*</p>
 
       
@@ -640,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#排除-包括文件或者目录"><span class="nav-number">1.</span> <span class="nav-text">排除/包括文件或者目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#set"><span class="nav-number">2.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#批量替换"><span class="nav-number">3.</span> <span class="nav-text">批量替换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#grep-include-使用"><span class="nav-number">1.</span> <span class="nav-text">grep include 使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#set"><span class="nav-number">2.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#批量替换"><span class="nav-number">3.</span> <span class="nav-text">批量替换</span></a></li></ol></div>
             
 
           </div>
