@@ -87,40 +87,16 @@
 
 
 
-<meta name="description" content="grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
-
-–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
-–exclude “README” 排除所有README文件 
-–include-dir 仅在某些目录中搜索 
-–exclude-dir 排除某些目录 
-–exclude-from FILE 从文件FILE中读取需要排除的文件列表
-
-例子1gre">
+<meta name="description" content="for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;#123;m_branch_list&amp;#125; $&amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="grep_include sed 使用">
-<meta property="og:url" content="https://le773.github.io/2017/03/04/grep_include sed 用法/index.html">
+<meta property="og:title" content="bash shell 语法记录">
+<meta property="og:url" content="https://le773.github.io/2017/03/04/bash shell 语法基础记录/index.html">
 <meta property="og:site_name" content="TLLANO">
-<meta property="og:description" content="grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
-
-–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
-–exclude “README” 排除所有README文件 
-–include-dir 仅在某些目录中搜索 
-–exclude-dir 排除某些目录 
-–exclude-from FILE 从文件FILE中读取需要排除的文件列表
-
-例子1gre">
-<meta property="og:updated_time" content="2017-03-04T06:17:32.659Z">
+<meta property="og:description" content="for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;#123;m_branch_list&amp;#125; $&amp;#123;">
+<meta property="og:updated_time" content="2017-03-04T06:47:04.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grep_include sed 使用">
-<meta name="twitter:description" content="grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
-
-–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
-–exclude “README” 排除所有README文件 
-–include-dir 仅在某些目录中搜索 
-–exclude-dir 排除某些目录 
-–exclude-from FILE 从文件FILE中读取需要排除的文件列表
-
-例子1gre">
+<meta name="twitter:title" content="bash shell 语法记录">
+<meta name="twitter:description" content="for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&amp;quot;&amp;quot;for((index=1;index&amp;lt;=$i;index++));do    m_branch_name=$(eval echo \$$index)      m_branch_list=&amp;quot;$&amp;#123;m_branch_list&amp;#125; $&amp;#123;">
 
 
 
@@ -148,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://le773.github.io/2017/03/04/grep_include sed 用法/"/>
+  <link rel="canonical" href="https://le773.github.io/2017/03/04/bash shell 语法基础记录/"/>
 
 
 
 
 
-  <title> grep_include sed 使用 | TLLANO </title>
+  <title> bash shell 语法记录 | TLLANO </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +279,7 @@
   
 
   <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://le773.github.io/2017/03/04/grep_include sed 用法/">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/2017/03/04/bash shell 语法基础记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
@@ -324,7 +300,7 @@
             
             
               
-                grep_include sed 使用
+                bash shell 语法记录
               
             
           </h1>
@@ -339,7 +315,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T14:39:14+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T14:45:14+08:00">
                 2017-03-04
               </time>
             
@@ -380,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/04/grep_include sed 用法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://le773.github.io/2017/03/04/grep_include sed 用法/" itemprop="commentCount">0</span> comments
+                <a href="/2017/03/04/bash shell 语法基础记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://le773.github.io/2017/03/04/bash shell 语法基础记录/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -407,32 +383,25 @@
       
 
       
-        <h6 id="grep-include-使用"><a href="#grep-include-使用" class="headerlink" title="grep include 使用"></a>grep include 使用</h6><p>作用：缩小搜索范围, 排除/包括文件或者目录</p>
-<ul>
-<li>–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；</li>
-<li>–exclude “README” 排除所有README文件 </li>
-<li>–include-dir 仅在某些目录中搜索 </li>
-<li>–exclude-dir 排除某些目录 </li>
-<li>–exclude-from FILE 从文件FILE中读取需要排除的文件列表</li>
-</ul>
-<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -nHR &quot;class.*InputManager&quot; --exclude=*&#123;xml,txt,jd,html&#125; --exclude-dir .git</div></pre></td></tr></table></figure></p>
+        <h5 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h5><h6 id="情形-a1"><a href="#情形-a1" class="headerlink" title="情形: a1"></a>情形: a1</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">i=$#</div><div class="line">i=$((i-1))</div><div class="line"></div><div class="line">m_branch_list=&quot;&quot;</div><div class="line">for((index=1;index&lt;=$i;index++));do</div><div class="line">    m_branch_name=$(eval echo \$$index)  </div><div class="line">    m_branch_list=&quot;$&#123;m_branch_list&#125; $&#123;m_branch_name&#125;&quot;    </div><div class="line">    hct_code_start_branch $&#123;m_branch_name&#125;</div><div class="line">    hct_code_download $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+<h6 id="情形-a2"><a href="#情形-a2" class="headerlink" title="情形: a2"></a>情形: a2</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for m_branch_name in $&#123;m_branch_list[@]&#125;; do</div><div class="line">    hct_code_merge $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+<h6 id="情形-a3-插入多个集合"><a href="#情形-a3-插入多个集合" class="headerlink" title="情形: a3 插入多个集合"></a>情形: a3 插入多个集合</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for m_file in $&#123;m_path_makefile&#125; \</div><div class="line">              $&#123;m_system_build_file&#125; \</div><div class="line">              $&#123;m_debug_file_kernel&#125;; do</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for m_tmp in *.log *.xml *.ini out; do</div><div class="line">    m_run_cmd=&quot;rm -rf $&#123;m_tmp&#125;&quot;</div><div class="line">    hct_print_green_string &quot;$&#123;m_run_cmd&#125;&quot;</div><div class="line">    $&#123;m_run_cmd&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
 <hr>
-<h6 id="set"><a href="#set" class="headerlink" title="set"></a>set</h6><ul>
-<li><p>set -x 是开启</p>
-</li>
-<li><p>set +x是关闭</p>
-</li>
-<li><p>set -o是查看 (xtrace)</p>
-</li>
-<li><p>set 去追中一段代码的显示情况</p>
-</li>
-</ul>
+<h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>数组声明   a1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">array_name=(</div><div class="line">value0</div><div class="line">value1</div><div class="line">value2</div><div class="line">value3</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>读取数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;array_name[index]&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h5><p>作用：<br>参数左移动一位;</p>
+<h5 id="数值操作"><a href="#数值操作" class="headerlink" title="数值操作"></a>数值操作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&quot;$&#123;m_repo_xml_number&#125;&quot; -lt &quot;1&quot;</div><div class="line">&quot;1&quot; -eq &quot;$&#123;m_build_action_is_release&#125;&quot;</div><div class="line">&quot;$&#123;m_get_target_process_no&#125;&quot; -gt &quot;0&quot;</div><div class="line">&quot;$&#123;m_get_space_available&#125;&quot; -le &quot;30&quot;</div><div class="line">$(hct_new_modem) -ge 1</div></pre></td></tr></table></figure>
+<h5 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">((m_size_parition_min=100*1024*1024))</div><div class="line">((m_size_parition_offset=$&#123;m_size_parition&#125;-$&#123;m_size_system&#125;))</div></pre></td></tr></table></figure>
 <hr>
-<h6 id="批量替换"><a href="#批量替换" class="headerlink" title="批量替换"></a>批量替换</h6><p>sed -i “s/查找字段/替换字段/g”  <code>grep 查找字段 -rl 路径</code></p>
-<p>sed -i “s/查找字段/替换字段/g” ./*</p>
-<p>若字符串中包含“/“等特殊字符串，可以:</p>
-<p>sed -i “s#查找字段#替换字段#g”  <code>grep 查找字段 -rl 路径</code></p>
-<p>sed -i “s#查找字段#替换字段#g” ./*</p>
+<h5 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h5><h6 id="输出多行"><a href="#输出多行" class="headerlink" title="输出多行"></a>输出多行</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo &quot;&quot;&quot; </div><div class="line">xxx </div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo </div><div class="line">xxxxxxx</div><div class="line">xxxxxxx</div><div class="line">echo</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;m_hints_info:0:2&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="test"><a href="#test" class="headerlink" title="test"></a>test</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test -z // 字符串的长度为零</div><div class="line"></div><div class="line">test -n // 字符串的长度不为零</div><div class="line"></div><div class="line">test -f // 文件存在</div><div class="line"></div><div class="line">test -d // 文件为目录</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="参数信息"><a href="#参数信息" class="headerlink" title="参数信息"></a>参数信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$&#123;*&#125; // 返回一个字符串</div><div class="line"></div><div class="line">$&#123;@&#125; // 返回多个字符串</div><div class="line"></div><div class="line">$?   // 是上一指令的返回值</div><div class="line"></div><div class="line">$&#123;#&#125; // 传递给脚本的参数</div><div class="line"></div><div class="line">$&#123;0&#125; // 脚本本身的名字</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -471,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/25/21-2-1 匿名内部类中创建线程/" rel="next" title="InnerThread1">
-                <i class="fa fa-chevron-left"></i> InnerThread1
+              <a href="/2017/03/04/grep_include sed 用法/" rel="next" title="grep_include sed 使用">
+                <i class="fa fa-chevron-left"></i> grep_include sed 使用
               </a>
             
           </div>
@@ -480,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/04/bash shell 语法基础记录/" rel="prev" title="bash shell 语法记录">
-                bash shell 语法记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#grep-include-使用"><span class="nav-number">1.</span> <span class="nav-text">grep include 使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#set"><span class="nav-number">2.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#批量替换"><span class="nav-number">3.</span> <span class="nav-text">批量替换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#for-循环"><span class="nav-number">1.</span> <span class="nav-text">for 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#情形-a1"><span class="nav-number">1.1.</span> <span class="nav-text">情形: a1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#情形-a2"><span class="nav-number">1.2.</span> <span class="nav-text">情形: a2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#情形-a3-插入多个集合"><span class="nav-number">1.3.</span> <span class="nav-text">情形: a3 插入多个集合</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shift"><span class="nav-number">3.</span> <span class="nav-text">shift</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数值操作"><span class="nav-number">4.</span> <span class="nav-text">数值操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数值计算"><span class="nav-number">5.</span> <span class="nav-text">数值计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo"><span class="nav-number">6.</span> <span class="nav-text">echo</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#输出多行"><span class="nav-number">6.1.</span> <span class="nav-text">输出多行</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串截取"><span class="nav-number">7.</span> <span class="nav-text">字符串截取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#test"><span class="nav-number">8.</span> <span class="nav-text">test</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数信息"><span class="nav-number">9.</span> <span class="nav-text">参数信息</span></a></li></ol></div>
             
 
           </div>
