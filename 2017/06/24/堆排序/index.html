@@ -1,0 +1,720 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/thumb.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/thumb.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/thumb.github.io/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="datastruct,algorithm," />
+
+
+
+
+
+  <link rel="alternate" href="/thumb.github.io/atom.xml" title="TLLANO" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/thumb.github.io/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="建堆SortHeap.h123456789101112131415161718#pragma once#include &amp;lt;cstdlib&amp;gt;#include &amp;lt;iostream&amp;gt;using namespace std;class SortHeap&amp;#123;public:    SortHeap();    ~SortHeap();&amp;#125;;#define LEN 12i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆排序">
+<meta property="og:url" content="https://le773.github.io/thumb.github.io/2017/06/24/堆排序/index.html">
+<meta property="og:site_name" content="TLLANO">
+<meta property="og:description" content="建堆SortHeap.h123456789101112131415161718#pragma once#include &amp;lt;cstdlib&amp;gt;#include &amp;lt;iostream&amp;gt;using namespace std;class SortHeap&amp;#123;public:    SortHeap();    ~SortHeap();&amp;#125;;#define LEN 12i">
+<meta property="og:updated_time" content="2017-06-24T15:03:14.149Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="堆排序">
+<meta name="twitter:description" content="建堆SortHeap.h123456789101112131415161718#pragma once#include &amp;lt;cstdlib&amp;gt;#include &amp;lt;iostream&amp;gt;using namespace std;class SortHeap&amp;#123;public:    SortHeap();    ~SortHeap();&amp;#125;;#define LEN 12i">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/thumb.github.io/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://le773.github.io/thumb.github.io/2017/06/24/堆排序/"/>
+
+
+
+
+
+  <title>堆排序 | TLLANO</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/thumb.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TLLANO</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不安分</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/thumb.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/thumb.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/thumb.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/06/24/堆排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TLLANO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/thumb.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLLANO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">堆排序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-24T10:39:14+08:00">
+                2017-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/thumb.github.io/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="建堆"><a href="#建堆" class="headerlink" title="建堆"></a>建堆</h5><h6 id="SortHeap-h"><a href="#SortHeap-h" class="headerlink" title="SortHeap.h"></a>SortHeap.h</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">class</span> SortHeap</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    SortHeap();</div><div class="line">    ~SortHeap();</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 12</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span>* b)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">sinkOrder</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> k)</span></span>;</div></pre></td></tr></table></figure>
+<h6 id="SortHeap-cpp"><a href="#SortHeap-cpp" class="headerlink" title="SortHeap.cpp"></a>SortHeap.cpp</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"SortHeap.h"</span></span></div><div class="line"></div><div class="line">SortHeap::SortHeap()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">SortHeap::~SortHeap()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapAB</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span>* b)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">    tmp = *a;</div><div class="line">    *a = *b;</div><div class="line">    *b = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">* len 数组长度, 包括占位符arr[0]</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">sinkOrder</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> k, <span class="keyword">int</span> top)</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span> (k * <span class="number">2</span> + <span class="number">1</span>&lt;= top) &#123; <span class="comment">// 2k+1</span></div><div class="line">        <span class="keyword">int</span> j = <span class="number">2</span> * k;</div><div class="line">        <span class="keyword">if</span> (j&lt;LEN &amp;&amp; arr[j] &lt; arr[j + <span class="number">1</span>])</div><div class="line">            j++;</div><div class="line">        <span class="keyword">if</span> (arr[k] &gt; arr[j])</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            swapAB(&amp;arr[k], &amp;arr[j]);</div><div class="line">        k = j;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">sortHeapSink</span><span class="params">(<span class="keyword">int</span>* arr)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// build max heap</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = LEN / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</div><div class="line">        sinkOrder(arr, i, LEN);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"------max heap-------"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">13</span>; i++) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"-------------"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="comment">// heap sort</span></div><div class="line">    <span class="keyword">int</span> j = LEN;</div><div class="line">    <span class="keyword">while</span> (j &gt; <span class="number">2</span>) &#123; <span class="comment">// notice</span></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; arr[<span class="number">1</span>] &lt;&lt; <span class="string">" swap "</span> &lt;&lt; arr[j] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        swapAB(&amp;arr[<span class="number">1</span>], &amp;arr[j--]);</div><div class="line">        sinkOrder(arr, <span class="number">1</span>, j);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; j &lt;&lt; <span class="string">"\t"</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">13</span>; i++) &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="string">" "</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">* len 数组长度, 包括占位符arr[0]</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swimOrder</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> k<span class="comment">/*, int top*/</span>)</span> </span>&#123;</div><div class="line">    <span class="comment">// print</span></div><div class="line">    <span class="comment">/*for (int i = 0; i &lt;= 12; i++) &#123;</span></div><div class="line">        cout &lt;&lt; arr[i] &lt;&lt; " - ";</div><div class="line">    &#125;</div><div class="line">    cout &lt;&lt; endl;*/</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (k &gt;= <span class="number">2</span> &amp;&amp; arr[k] &gt; arr[k / <span class="number">2</span>]) &#123;</div><div class="line">        swapAB(&amp;arr[k/<span class="number">2</span>], &amp;arr[k]);</div><div class="line">        k = k / <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* error:</div><div class="line">* why ?</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">sortHeapSwim</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</div><div class="line">    <span class="comment">// build max heap</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = LEN; i &gt;= <span class="number">2</span>; i--) &#123;</div><div class="line">        swimOrder(arr, i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// print</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]); i++) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="string">" "</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> k = LEN;</div><div class="line">    <span class="keyword">while</span> (k &gt;= <span class="number">1</span>) &#123;</div><div class="line">        swapAB(&amp;arr[<span class="number">1</span>], &amp;arr[k--]);</div><div class="line">        swimOrder(arr, k);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>// debug<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int main() &#123;</div><div class="line">    int arr[13] = &#123; 1, 50, 38, 65, 97, 76, 23, 27, 49, 78, 34, 12, 64 &#125;; // 1 作为数组的占位符，无实际意义</div><div class="line">    sortHeapSink(arr);</div><div class="line">    /*</div><div class="line">    sortHeapSwim(arr);</div><div class="line">    */</div><div class="line">    // print</div><div class="line">    for (int i = 0; i &lt; sizeof(arr) / sizeof(arr[0]); i++) &#123;</div><div class="line">        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;</div><div class="line">    &#125;</div><div class="line">    cout &lt;&lt; endl;</div><div class="line">    </div><div class="line">    return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/thumb.github.io/tags/datastruct/" rel="tag"># datastruct</a>
+          
+            <a href="/thumb.github.io/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/thumb.github.io/2017/06/23/二叉查找树 最近公共祖先LCA问题/" rel="next" title="二叉查找树 最近公共祖先LCA问题">
+                <i class="fa fa-chevron-left"></i> 二叉查找树 最近公共祖先LCA问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/thumb.github.io/images/avatar.gif"
+               alt="TLLANO" />
+          <p class="site-author-name" itemprop="name">TLLANO</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/thumb.github.io/archives/">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/thumb.github.io/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/thumb.github.io/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/thumb.github.io/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#建堆"><span class="nav-number">1.</span> <span class="nav-text">建堆</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#SortHeap-h"><span class="nav-number">1.1.</span> <span class="nav-text">SortHeap.h</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SortHeap-cpp"><span class="nav-number">1.2.</span> <span class="nav-text">SortHeap.cpp</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TLLANO</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/thumb.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/thumb.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/thumb.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/thumb.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/thumb.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/thumb.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/thumb.github.io/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/thumb.github.io/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/thumb.github.io/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/thumb.github.io/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/thumb.github.io/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
