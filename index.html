@@ -11,6 +11,12 @@
 
 
 
+
+
+
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
@@ -66,7 +72,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
@@ -126,11 +132,7 @@
 
 
 
-  <title> TLLANO -  </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>TLLANO</title>
   
 
 
@@ -145,13 +147,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -282,7 +288,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -295,16 +301,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/06/24/二叉查找树 最近公共祖先LCA问题/" itemprop="url">
-                  二叉查找树 最近公共祖先LCA问题
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/06/24/二叉查找树 最近公共祖先LCA问题/" itemprop="url">二叉查找树 最近公共祖先LCA问题</a></h1>
         
 
         <div class="post-meta">
@@ -377,7 +375,6 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -386,16 +383,13 @@
       
         
           
-          二叉查找树 最近公共祖先LCA问题暴力解法
-BinSearchTree.h12345678910111213#pragma once#include &lt;cstdlib&gt;#include &lt;iostream&gt;using namespace std;class BinSearch
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/24/二叉查找树 最近公共祖先LCA问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h4 id="二叉查找树-最近公共祖先LCA问题"><a href="#二叉查找树-最近公共祖先LCA问题" class="headerlink" title="二叉查找树 最近公共祖先LCA问题"></a>二叉查找树 最近公共祖先LCA问题</h4><p>暴力解法</p>
+<h6 id="BinSearchTree-h"><a href="#BinSearchTree-h" class="headerlink" title="BinSearchTree.h"></a>BinSearchTree.h</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">class</span> BinSearchTree</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    BinSearchTree();</div><div class="line">    ~BinSearchTree();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h6 id="BinSearchTree-cpp"><a href="#BinSearchTree-cpp" class="headerlink" title="BinSearchTree.cpp"></a>BinSearchTree.cpp</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"BinSearchTree.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">BinSearchTree::BinSearchTree()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">BinSearchTree::~BinSearchTree()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">struct</span> binary_tree &#123;</div><div class="line">    <span class="keyword">int</span> data;</div><div class="line">    <span class="keyword">struct</span> binary_tree* left;</div><div class="line">    <span class="keyword">struct</span> binary_tree* right;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> binary_tree Node;</div><div class="line"><span class="comment">// 方法1</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Node** node, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    Node* tmp = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">if</span> (!(*node)) &#123;</div><div class="line">        tmp = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</div><div class="line">        tmp-&gt;data = val;</div><div class="line">        tmp-&gt;left = tmp-&gt;right = <span class="literal">NULL</span>;</div><div class="line">		<span class="comment">// error: node指向的地址为NULL, 该变二级指针的地址无意义</span></div><div class="line">        <span class="comment">//node = &amp;tmp; </span></div><div class="line">        *node = tmp;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ((*node)-&gt;data &gt; val)</div><div class="line">        insert(&amp;(*node)-&gt;left, val);</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ((*node)-&gt;data &lt; val)</div><div class="line">    &#123;</div><div class="line">        insert(&amp;(*node)-&gt;right, val);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法2</span></div><div class="line"><span class="function">Node* <span class="title">insertNode</span><span class="params">(Node** node, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    Node* tmp = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">if</span> (!(*node)) &#123;</div><div class="line">        tmp = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</div><div class="line">        tmp-&gt;data = val;</div><div class="line">        tmp-&gt;left = tmp-&gt;right = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">        <span class="comment">//node = &amp;tmp;</span></div><div class="line">        *node = tmp;</div><div class="line">        <span class="keyword">return</span> *node;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (val &lt; (*node)-&gt;data) &#123;</div><div class="line">        (*node)-&gt;left = insertNode(&amp;(*node)-&gt;left, val);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &gt; (*node)-&gt;data) &#123;</div><div class="line">        (*node)-&gt;right = insertNode(&amp;(*node)-&gt;right, val);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// duplicate</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> *node; </div><div class="line">	<span class="comment">// 如果不返回，子递归的结果赋值给父类地址，</span></div><div class="line">    <span class="comment">// 最综，根节点左右子树为最后在左右子树开辟的地址</span></div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">// 前 遍历二叉树</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(Node* root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; root-&gt;data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    ergodic(root-&gt;left);</div><div class="line">    ergodic(root-&gt;right);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">zhergodic</span><span class="params">(Node* root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    ergodic(root-&gt;left);</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; root-&gt;data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    ergodic(root-&gt;right);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// free tree</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">deltree</span><span class="params">(Node* root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root) &#123;</div><div class="line">        deltree(root-&gt;left);</div><div class="line">        deltree(root-&gt;right);</div><div class="line">        <span class="built_in">free</span>(root);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">deep</span><span class="params">(Node* node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node == <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> left = deep(node-&gt;left);</div><div class="line">    <span class="keyword">int</span> right = deep(node-&gt;right);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> + ((left &gt;= right) ? left : right);</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">// 最近公共祖先</span></div><div class="line"><span class="function">Node* <span class="title">getLCA</span><span class="params">(Node* root, Node* node1, Node* node2)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">    <span class="comment">// 数值判断</span></div><div class="line">    <span class="keyword">if</span> (root-&gt;data == node1-&gt;data || root-&gt;data == node2-&gt;data) &#123;</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/* error:</span></div><div class="line">    if (root == node1  || root == node2) &#123;</div><div class="line">    return root;</div><div class="line">    &#125;</div><div class="line">    */</div><div class="line">    <span class="comment">// </span></div><div class="line">    Node* left = getLCA(root-&gt;left, node1, node2);</div><div class="line">    Node* right = getLCA(root-&gt;right, node1, node2);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (left != <span class="literal">NULL</span> &amp;&amp; right != <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    <span class="keyword">if</span> (left != <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span> left;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (right != <span class="literal">NULL</span>)</div><div class="line">        <span class="keyword">return</span> right;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">findNode</span><span class="params">(Node* node, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node-&gt;data == value) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;data &gt; value)</div><div class="line">    &#123;</div><div class="line">        findNode(node-&gt;right, value);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        findNode(node-&gt;left, value);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMax</span><span class="params">(Node* node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node-&gt;right == <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="keyword">return</span> node-&gt;data;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        findMax(node-&gt;right);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(Node* node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node-&gt;left == <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="keyword">return</span> node-&gt;data;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        findMin(node-&gt;left);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">delMin</span><span class="params">(Node** node)</span> </span>&#123;</div><div class="line">    Node* p = *node;</div><div class="line">    Node* pNode = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">if</span> (p-&gt;left == <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (p-&gt;right == <span class="literal">NULL</span>) &#123;</div><div class="line">            <span class="built_in">free</span>(p);</div><div class="line">            p = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            pNode = p-&gt;right;</div><div class="line">            p-&gt;data = pNode-&gt;data;</div><div class="line">            p-&gt;left = pNode-&gt;left;</div><div class="line">            p-&gt;right = pNode-&gt;right;</div><div class="line"></div><div class="line">            <span class="built_in">free</span>(pNode);</div><div class="line">            pNode = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> delMin(&amp;p-&gt;left);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>debug<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// debug</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"hello"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    Node* root = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">int</span> arr[<span class="number">11</span>] = &#123; <span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span> &#125;;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; i++) &#123;</div><div class="line">        insert(&amp;root, arr[i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ergodic(root);</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"------------"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    zhergodic(root);</div><div class="line"></div><div class="line">    Node* nodeA = <span class="keyword">new</span> Node;</div><div class="line">    Node* nodeB = <span class="keyword">new</span> Node;</div><div class="line">    nodeA-&gt;data = <span class="number">6</span>;</div><div class="line">    nodeB-&gt;data = <span class="number">8</span>;</div><div class="line">    </div><div class="line">    Node* nodeC = getLCA(root, nodeA, nodeB);</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; nodeC-&gt;data &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>核心解法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">getLCA(Node* root, Node* node1, Node* node2);</div><div class="line"></div><div class="line">当node1 node2位于根节点的左右子树木</div><div class="line">    getLCA是 值相等的那个点，并一直递归到公共节点</div><div class="line">    问题变为：当node1 node2位于根节点的同一子树</div><div class="line"></div><div class="line">当node1 node2位于根节点的同一子树</div><div class="line">    当left right 均不为空时，返回当前的root节点，并递归返回结果；</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -408,6 +402,9 @@ BinSearchTree.h12345678910111213#pragma once#include &lt;cstdlib&gt;#include &lt
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -439,7 +436,7 @@ BinSearchTree.h12345678910111213#pragma once#include &lt;cstdlib&gt;#include &lt
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -452,16 +449,8 @@ BinSearchTree.h12345678910111213#pragma once#include &lt;cstdlib&gt;#include &lt
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/解决scrollBy生硬滑动/" itemprop="url">
-                  解决scrollBy生硬滑动
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/解决scrollBy生硬滑动/" itemprop="url">解决scrollBy生硬滑动</a></h1>
         
 
         <div class="post-meta">
@@ -534,7 +523,6 @@ BinSearchTree.h12345678910111213#pragma once#include &lt;cstdlib&gt;#include &lt
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -543,16 +531,11 @@ BinSearchTree.h12345678910111213#pragma once#include &lt;cstdlib&gt;#include &lt
       
         
           
-          invalidate 调用顺序123invalidate(); onDraw();computeScroll();
-computeScroll12345678910public void computeScroll() &#123;    if( scroller.cuputeScrollOffse
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/解决scrollBy生硬滑动/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h5 id="invalidate-调用顺序"><a href="#invalidate-调用顺序" class="headerlink" title="invalidate 调用顺序"></a>invalidate 调用顺序</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">invalidate(); </div><div class="line">onDraw();</div><div class="line">computeScroll();</div></pre></td></tr></table></figure>
+<h5 id="computeScroll"><a href="#computeScroll" class="headerlink" title="computeScroll"></a>computeScroll</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">computeScroll</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>( scroller.cuputeScrollOffset())&#123; <span class="comment">// 循环的基础</span></div><div class="line"></div><div class="line">        <span class="keyword">float</span> currX = scroller.getCurrX(); <span class="comment">// 最新绝对位置</span></div><div class="line"></div><div class="line">        scrollTo((<span class="keyword">int</span>) currX,<span class="number">0</span>);</div><div class="line"></div><div class="line">        invalidate(); <span class="comment">//onDraw();computeScroll();</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="cuputeScrollOffset"><a href="#cuputeScrollOffset" class="headerlink" title="cuputeScrollOffset"></a>cuputeScrollOffset</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cuputeScrollOffset</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(isFinish)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">long</span> endTime = SystemClock.uptimeMillis();</div><div class="line"></div><div class="line">    <span class="comment">//这一小段所花的时间</span></div><div class="line">    <span class="keyword">long</span> passTime = endTime - startTime;</div><div class="line">    <span class="keyword">if</span>(passTime &lt; totalTime) &#123;</div><div class="line">        <span class="comment">//还没有移动结束</span></div><div class="line">        <span class="comment">//计算平均速度</span></div><div class="line">        <span class="comment">//float voleCity = distanceX/totalTime;</span></div><div class="line">        <span class="comment">//移动这个一小段对应的距离</span></div><div class="line">        <span class="keyword">float</span> distanceSamllX = passTime* distanceX/totalTime;</div><div class="line">        currX = startX + distanceSamllX;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//移动结束</span></div><div class="line">        isFinish =<span class="keyword">true</span>;</div><div class="line">        currX = startX + distanceX;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -565,6 +548,9 @@ computeScroll12345678910public void computeScroll() &#123;    if( scroller.cuput
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -596,7 +582,7 @@ computeScroll12345678910public void computeScroll() &#123;    if( scroller.cuput
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -609,16 +595,8 @@ computeScroll12345678910public void computeScroll() &#123;    if( scroller.cuput
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/不使用第三个变量交换两个变量的值/" itemprop="url">
-                  不使用第三个变量交换两个变量的值
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/不使用第三个变量交换两个变量的值/" itemprop="url">不使用第三个变量交换两个变量的值</a></h1>
         
 
         <div class="post-meta">
@@ -691,7 +669,6 @@ computeScroll12345678910public void computeScroll() &#123;    if( scroller.cuput
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -700,20 +677,17 @@ computeScroll12345678910public void computeScroll() &#123;    if( scroller.cuput
       
         
           
-          给出两个变量：var a = 1, b = 2; 
-方法一：12345a = a + b;b = a - b;a = a - b;
-a, b 的值已经交换。
-方法二：12345a = a ^ b;b = a ^ b;a = a ^ b;
-a, b 的值已经交换。
-原理：异或运算，任意一个数与任意一个
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/不使用第三个变量交换两个变量的值/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>给出两个变量：var a = 1, b = 2; </p>
+<p>方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a = a + b;</div><div class="line"></div><div class="line">b = a - b;</div><div class="line"></div><div class="line">a = a - b;</div></pre></td></tr></table></figure></p>
+<p>a, b 的值已经交换。</p>
+<p>方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a = a ^ b;</div><div class="line"></div><div class="line">b = a ^ b;</div><div class="line"></div><div class="line">a = a ^ b;</div></pre></td></tr></table></figure></p>
+<p>a, b 的值已经交换。</p>
+<p>原理：异或运算，任意一个数与任意一个给定的值异或两次，其值保持不变。</p>
+<p>方法三：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = b + (b = a) * 0;  或者</div><div class="line"></div><div class="line">a = (a + b) - (a = b);</div></pre></td></tr></table></figure></p>
+<p>a, b 的值已经交换。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>不使用第三个变量交换两个变量的值<br><a href="http://www.cnblogs.com/wuzhenbo/archive/2012/04/25/2469223.html" title="交换数字" target="_blank" rel="external">http://www.cnblogs.com/wuzhenbo/archive/2012/04/25/2469223.html</a></p>
+
+          
         
       
     </div>
@@ -726,6 +700,9 @@ a, b 的值已经交换。
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -757,7 +734,7 @@ a, b 的值已经交换。
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -770,16 +747,8 @@ a, b 的值已经交换。
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/activity fragment 生命周期/" itemprop="url">
-                  activity fragment 生命周期对比
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/activity fragment 生命周期/" itemprop="url">activity fragment 生命周期对比</a></h1>
         
 
         <div class="post-meta">
@@ -852,7 +821,6 @@ a, b 的值已经交换。
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -861,19 +829,12 @@ a, b 的值已经交换。
       
         
           
-          activity fragment 生命周期对比
-onAttach作用：当fragment 第一次与 Activity 产生关联时调用，以后不再调用;
-onCreateViewonActivityCreated作用：表示窗口已经初始化完毕
-onDestoryViewonDetach
+            <h6 id="activity-fragment-生命周期对比"><a href="#activity-fragment-生命周期对比" class="headerlink" title="activity fragment 生命周期对比"></a>activity fragment 生命周期对比</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/activity_fragment.png?raw=true" alt="activity_fragment 生命周期"></p>
+<p>onAttach<br>作用：<br>当fragment 第一次与 Activity 产生关联时调用，以后不再调用;</p>
+<p>onCreateView<br>onActivityCreated<br>作用：<br>表示窗口已经初始化完毕</p>
+<p>onDestoryView<br>onDetach</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/activity fragment 生命周期/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -886,6 +847,9 @@ onDestoryViewonDetach
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -917,7 +881,7 @@ onDestoryViewonDetach
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -930,16 +894,8 @@ onDestoryViewonDetach
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/bash shell 语法基础记录/" itemprop="url">
-                  bash shell 语法记录
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/bash shell 语法基础记录/" itemprop="url">bash shell 语法记录</a></h1>
         
 
         <div class="post-meta">
@@ -1012,7 +968,6 @@ onDestoryViewonDetach
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1021,23 +976,35 @@ onDestoryViewonDetach
       
         
           
-          文章内容:
+            <p>文章内容:</p>
+<ul>
+<li>for循环</li>
+<li>数组</li>
+<li>shift</li>
+<li>字符串截断</li>
+<li>参数含义 </li>
+</ul>
+<h5 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h5><h6 id="情形-a1"><a href="#情形-a1" class="headerlink" title="情形: a1"></a>情形: a1</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">i=$#</div><div class="line">i=$((i-1))</div><div class="line"></div><div class="line">m_branch_list=&quot;&quot;</div><div class="line">for((index=1;index&lt;=$i;index++));do</div><div class="line">    m_branch_name=$(eval echo \$$index)  </div><div class="line">    m_branch_list=&quot;$&#123;m_branch_list&#125; $&#123;m_branch_name&#125;&quot;    </div><div class="line">    hct_code_start_branch $&#123;m_branch_name&#125;</div><div class="line">    hct_code_download $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+<h6 id="情形-a2"><a href="#情形-a2" class="headerlink" title="情形: a2"></a>情形: a2</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for m_branch_name in $&#123;m_branch_list[@]&#125;; do</div><div class="line">    hct_code_merge $&#123;m_branch_name&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+<h6 id="情形-a3-插入多个集合"><a href="#情形-a3-插入多个集合" class="headerlink" title="情形: a3 插入多个集合"></a>情形: a3 插入多个集合</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for m_file in $&#123;m_path_makefile&#125; \</div><div class="line">              $&#123;m_system_build_file&#125; \</div><div class="line">              $&#123;m_debug_file_kernel&#125;; do</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for m_tmp in *.log *.xml *.ini out; do</div><div class="line">    m_run_cmd=&quot;rm -rf $&#123;m_tmp&#125;&quot;</div><div class="line">    hct_print_green_string &quot;$&#123;m_run_cmd&#125;&quot;</div><div class="line">    $&#123;m_run_cmd&#125;</div><div class="line">done</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>数组声明   a1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">array_name=(</div><div class="line">value0</div><div class="line">value1</div><div class="line">value2</div><div class="line">value3</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>读取数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;array_name[index]&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h5><p>作用：<br>参数左移动一位;</p>
+<h5 id="数值操作"><a href="#数值操作" class="headerlink" title="数值操作"></a>数值操作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&quot;$&#123;m_repo_xml_number&#125;&quot; -lt &quot;1&quot;</div><div class="line">&quot;1&quot; -eq &quot;$&#123;m_build_action_is_release&#125;&quot;</div><div class="line">&quot;$&#123;m_get_target_process_no&#125;&quot; -gt &quot;0&quot;</div><div class="line">&quot;$&#123;m_get_space_available&#125;&quot; -le &quot;30&quot;</div><div class="line">$(hct_new_modem) -ge 1</div></pre></td></tr></table></figure>
+<h5 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">((m_size_parition_min=100*1024*1024))</div><div class="line">((m_size_parition_offset=$&#123;m_size_parition&#125;-$&#123;m_size_system&#125;))</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h5><h6 id="输出多行"><a href="#输出多行" class="headerlink" title="输出多行"></a>输出多行</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo &quot;&quot;&quot; </div><div class="line">xxx </div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo </div><div class="line">xxxxxxx</div><div class="line">xxxxxxx</div><div class="line">echo</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&#123;m_hints_info:0:2&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="test"><a href="#test" class="headerlink" title="test"></a>test</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">test -z // 字符串的长度为零</div><div class="line"></div><div class="line">test -n // 字符串的长度不为零</div><div class="line"></div><div class="line">test -f // 文件存在</div><div class="line"></div><div class="line">test -d // 文件为目录</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="参数信息"><a href="#参数信息" class="headerlink" title="参数信息"></a>参数信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$&#123;*&#125; // 返回一个字符串</div><div class="line"></div><div class="line">$&#123;@&#125; // 返回多个字符串</div><div class="line"></div><div class="line">$?   // 是上一指令的返回值</div><div class="line"></div><div class="line">$&#123;#&#125; // 传递给脚本的参数</div><div class="line"></div><div class="line">$&#123;0&#125; // 脚本本身的名字</div></pre></td></tr></table></figure>
 
-for循环
-数组
-shift
-字符串截断
-参数含义 
-
-for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&quot;&quot;for((index=1;index&lt;=$i;index++));do    m_branch_n
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/bash shell 语法基础记录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1050,6 +1017,9 @@ for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&quot;&quot;for((inde
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1081,7 +1051,7 @@ for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&quot;&quot;for((inde
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1094,16 +1064,8 @@ for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&quot;&quot;for((inde
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/Android修改默认输入法/" itemprop="url">
-                  Android 修改默认输入法
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/Android修改默认输入法/" itemprop="url">Android 修改默认输入法</a></h1>
         
 
         <div class="post-meta">
@@ -1176,7 +1138,6 @@ for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&quot;&quot;for((inde
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1185,17 +1146,20 @@ for 循环情形: a112345678910i=$#i=$((i-1))m_branch_list=&quot;&quot;for((inde
       
         
           
-          修改SettingsProvider defaults.xml路径framework/base/packages/SettingsProvider/res/values/defaults.xml
-包名
-service name12&lt;string name="def_input_method" 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/Android修改默认输入法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h6 id="修改SettingsProvider-defaults-xml"><a href="#修改SettingsProvider-defaults-xml" class="headerlink" title="修改SettingsProvider defaults.xml"></a>修改SettingsProvider defaults.xml</h6><p>路径<br>framework/base/packages/SettingsProvider/res/values/defaults.xml</p>
+<p>包名<br><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/default_input/default_input_pkg_name.png?raw=true" alt="default_method_pkg_name"></p>
+<p>service name<br><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/default_input/input_default.png?raw=true" alt="service_name"><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;string name="def_input_method" translatable="false"&gt;com.hitap.inputmethod.mi/com.funny.inputmet</div><div class="line">hod.imecontrol.FunnyIME&lt;/string&gt;</div></pre></td></tr></table></figure></p>
+<p>def_input_method 格式为 包名+service name, 其中service name 包含<code>&lt;action android:name=&quot;android.view.InputMethod&quot;/&gt;</code>;</p>
+<h6 id="加载-def-input-method-字符串"><a href="#加载-def-input-method-字符串" class="headerlink" title="加载 def_input_method 字符串"></a>加载 def_input_method 字符串</h6><p>路径<br>Frameworks/base/packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">loadStringSetting(stmt, Settings.Secure.DEFAULT_INPUT_METHOD,R.string.def_input_method);</div></pre></td></tr></table></figure></p>
+<h6 id="SettingsProvider数据库创建"><a href="#SettingsProvider数据库创建" class="headerlink" title="SettingsProvider数据库创建"></a>SettingsProvider数据库创建</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> SQLiteDatabase <span class="title">getDatabaseLocked</span><span class="params">(<span class="keyword">boolean</span> writable)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (mDatabase != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (!mDatabase.isOpen()) &#123;</div><div class="line">            <span class="comment">// Darn!  The user closed the database by calling mDatabase.close().</span></div><div class="line">            mDatabase = <span class="keyword">null</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!writable || !mDatabase.isReadOnly()) &#123;</div><div class="line">            <span class="comment">// The database is already open for business.</span></div><div class="line">            <span class="keyword">return</span> mDatabase;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (mIsInitializing) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"getDatabase called recursively"</span>);</div><div class="line">    &#125;</div><div class="line">    SQLiteDatabase db = mDatabase;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h6><p>路径<br>base/packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DatabaseHelper dbHelper = <span class="keyword">new</span> DatabaseHelper(getContext(), userId);</div><div class="line">SQLiteDatabase database = dbHelper.getWritableDatabase();</div><div class="line">migrateLegacySettingsForUserLocked(dbHelper, database, userId);</div></pre></td></tr></table></figure>
+<p>DatabaseHelper.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">DatabaseHelper</span><span class="params">(Context context, <span class="keyword">int</span> userHandle)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(context, dbNameForUser(userHandle), <span class="keyword">null</span>, DATABASE_VERSION);</div><div class="line">    mContext = context;</div><div class="line">    mUserHandle = userHandle;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DatabaseHelper</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">		loadSettings(db)</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// loadSettings</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadSettings</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">        mUtils = <span class="keyword">new</span> ProvidersUtils(mContext);</div><div class="line">        loadSystemSettings(db);</div><div class="line">        loadSecureSettings(db);</div><div class="line">        <span class="comment">// The global table only exists for the 'owner' user</span></div><div class="line">        <span class="keyword">if</span> (mUserHandle == UserHandle.USER_OWNER) &#123;</div><div class="line">            loadGlobalSettings(db);</div><div class="line">        &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// loadSecureSettings</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadSecureSettings</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">	    SQLiteStatement stmt = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">try</span> &#123;</div><div class="line">	        stmt = db.compileStatement(<span class="string">"INSERT OR IGNORE INTO secure(name,value)"</span></div><div class="line">	                + <span class="string">" VALUES(?,?);"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="数据库存放位置"><a href="#数据库存放位置" class="headerlink" title="数据库存放位置"></a>数据库存放位置</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/default_input/db_default_location.png?raw=true" alt="default_method_db_location"><br>存储的数据库应该是Setting.Global</p>
+<h6 id="修改APK的集成位置"><a href="#修改APK的集成位置" class="headerlink" title="修改APK的集成位置"></a>修改APK的集成位置</h6><p>不同位置的apk拥有的权限不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LOCAL_PRIVILEGED_MODULE := false  system/app</div><div class="line">LOCAL_PRIVILEGED_MODULE := true   system/priv-app</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1208,6 +1172,9 @@ service name12&lt;string name="def_input_method"
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1239,7 +1206,7 @@ service name12&lt;string name="def_input_method"
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1252,16 +1219,8 @@ service name12&lt;string name="def_input_method"
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/AsyncTask源码分析/" itemprop="url">
-                  AsyncTask 源码分析
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/AsyncTask源码分析/" itemprop="url">AsyncTask 源码分析</a></h1>
         
 
         <div class="post-meta">
@@ -1334,7 +1293,6 @@ service name12&lt;string name="def_input_method"
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1343,16 +1301,25 @@ service name12&lt;string name="def_input_method"
       
         
           
-          Async源码解析
-Async 构造函数123456789101112131415161718192021222324252627282930public AsyncTask() &#123;    mWorker = new WorkerRunnable&lt;Params, Result&gt;
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/AsyncTask源码分析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Async源码解析</p>
+<h6 id="Async-构造函数"><a href="#Async-构造函数" class="headerlink" title="Async 构造函数"></a>Async 构造函数</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">AsyncTask</span><span class="params">()</span> </span>&#123;</div><div class="line">    mWorker = <span class="keyword">new</span> WorkerRunnable&lt;Params, Result&gt;() &#123;</div><div class="line">		<span class="comment">// 重写父类call方法，并通过postResult发送到主线程；</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Result <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">            mTaskInvoked.set(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">            Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);</div><div class="line">            <span class="comment">//noinspection unchecked</span></div><div class="line">            Result result = doInBackground(mParams);</div><div class="line">            Binder.flushPendingCommands();</div><div class="line">            <span class="keyword">return</span> postResult(result);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">	<span class="comment">// 初始化FutureTask成员变量callable</span></div><div class="line">    mFuture = <span class="keyword">new</span> FutureTask&lt;Result&gt;(mWorker) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">done</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                postResultIfNotInvoked(get());</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                android.util.Log.w(LOG_TAG, e);</div><div class="line">            &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"An error occurred while executing doInBackground()"</span>,</div><div class="line">                        e.getCause());</div><div class="line">            &#125; <span class="keyword">catch</span> (CancellationException e) &#123;</div><div class="line">                postResultIfNotInvoked(<span class="keyword">null</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>WorkerRunable</code>实现了父类接口<code>Callable</code>中的<code>Call</code>方法；<br>然后被封装到<code>FutureTask</code>的<code>callable</code>;</p>
+<h6 id="AysncTask-execute"><a href="#AysncTask-execute" class="headerlink" title="AysncTask.execute()"></a>AysncTask.execute()</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;Params, Progress, Result&gt; <span class="title">execute</span><span class="params">(Params... params)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> executeOnExecutor(sDefaultExecutor, params);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>sDefaultExecutor</code>可通过<code>setDefaultExecutor(Executor exec)</code>指定线程池, 如果没有指定<code>sDefaultExecutor</code>为AsyncTask自己的<code>SERIAL_EXECUTOR</code>;</p>
+<h6 id="executeOnExecutor"><a href="#executeOnExecutor" class="headerlink" title="executeOnExecutor"></a>executeOnExecutor</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;Params, Progress, Result&gt; <span class="title">executeOnExecutor</span><span class="params">(Executor exec,</span></span></div><div class="line">        Params... params) &#123;</div><div class="line">    <span class="keyword">if</span> (mStatus != Status.PENDING) &#123;</div><div class="line">        <span class="keyword">switch</span> (mStatus) &#123;</div><div class="line">            <span class="keyword">case</span> RUNNING:</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></div><div class="line">                        + <span class="string">" the task is already running."</span>);</div><div class="line">            <span class="keyword">case</span> FINISHED:</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></div><div class="line">                        + <span class="string">" the task has already been executed "</span></div><div class="line">                        + <span class="string">"(a task can be executed only once)"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mStatus = Status.RUNNING;</div><div class="line"></div><div class="line">    onPreExecute();</div><div class="line"></div><div class="line">    mWorker.mParams = params;</div><div class="line">    exec.execute(mFuture);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将要执行的task 封装到<code>mWorker</code>, <code>mWorker</code>的类型为<code>WorkerRunnable&lt;Params, Result&gt; implements Callable&lt;Result&gt;</code>, <code>mWorker</code>又被封装到<code>FutureTask</code>的<code>callable</code>, 所以在<code>FutureTask</code>中会调用<code>callable</code>,<code>call()</code>方法，最终会调用<code>WorkerRunnable</code>的<code>call()</code>;</p>
+<h6 id="FutureTask的构造函数"><a href="#FutureTask的构造函数" class="headerlink" title="FutureTask的构造函数"></a>FutureTask的构造函数</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">FutureTask</span><span class="params">(Callable&lt;V&gt; callable)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (callable == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">    <span class="keyword">this</span>.callable = callable;</div><div class="line">    <span class="keyword">this</span>.state = NEW;       <span class="comment">// ensure visibility of callable</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="exe-execute的默认实现"><a href="#exe-execute的默认实现" class="headerlink" title="exe.execute的默认实现"></a>exe.execute的默认实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SerialExecutor</span> <span class="keyword">implements</span> <span class="title">Executor</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> ArrayDeque&lt;Runnable&gt; mTasks = <span class="keyword">new</span> ArrayDeque&lt;Runnable&gt;();</div><div class="line">    Runnable mActive;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">final</span> Runnable r)</span> </span>&#123;</div><div class="line">        mTasks.offer(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    r.run();</div><div class="line">                &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                    scheduleNext();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span> (mActive == <span class="keyword">null</span>) &#123;</div><div class="line">            scheduleNext();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">	<span class="comment">// 执行下个任务</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">scheduleNext</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((mActive = mTasks.poll()) != <span class="keyword">null</span>) &#123;</div><div class="line">            THREAD_POOL_EXECUTOR.execute(mActive);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>execute(final Runnable r)</code>中<code>r</code>的类型为<code>FutureTask</code>, 所以<code>r.run</code>最终调用的方法为<code>FutureTask.run</code>, <code>Runnable r</code>经过包装任务最终添加进类型为<code>ArrayDeque&lt;Runnable&gt;</code>的<code>mTasks</code>;<br>由<code>scheduleNext</code>可知，任务的执行为串行;</p>
+<h6 id="FutureTask-run的实现"><a href="#FutureTask-run的实现" class="headerlink" title="FutureTask.run的实现"></a>FutureTask.run的实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (state != NEW ||</div><div class="line">        !U.compareAndSwapObject(<span class="keyword">this</span>, RUNNER, <span class="keyword">null</span>, Thread.currentThread()))</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Callable&lt;V&gt; c = callable;</div><div class="line">        <span class="keyword">if</span> (c != <span class="keyword">null</span> &amp;&amp; state == NEW) &#123;</div><div class="line">            V result;</div><div class="line">            <span class="keyword">boolean</span> ran;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                result = c.call(); <span class="comment">// 回掉call()</span></div><div class="line">                ran = <span class="keyword">true</span>;</div><div class="line">            &#125; <span class="keyword">catch</span> (Throwable ex) &#123;</div><div class="line">                result = <span class="keyword">null</span>;</div><div class="line">                ran = <span class="keyword">false</span>;</div><div class="line">                setException(ex);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (ran)</div><div class="line">                set(result);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">		<span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由AsyncTask构造函数可知, <code>c.call()</code>最终会调用<code>WorkerRunnable</code>的方法，并通过<code>postResult</code>发送到主线程;</p>
+<h6 id="postResult向主线程发送消息"><a href="#postResult向主线程发送消息" class="headerlink" title="postResult向主线程发送消息"></a>postResult向主线程发送消息</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Result <span class="title">postResult</span><span class="params">(Result result)</span> </span>&#123;</div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">    Message message = getHandler().obtainMessage(MESSAGE_POST_RESULT,</div><div class="line">            <span class="keyword">new</span> AsyncTaskResult&lt;Result&gt;(<span class="keyword">this</span>, result));</div><div class="line">    message.sendToTarget();</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="handleMessage-实现"><a href="#handleMessage-实现" class="headerlink" title="handleMessage 实现"></a>handleMessage 实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">    AsyncTaskResult&lt;?&gt; result = (AsyncTaskResult&lt;?&gt;) msg.obj;</div><div class="line">    <span class="keyword">switch</span> (msg.what) &#123;</div><div class="line">        <span class="keyword">case</span> MESSAGE_POST_RESULT:</div><div class="line">            <span class="comment">// There is only one result</span></div><div class="line">            result.mTask.finish(result.mData[<span class="number">0</span>]);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MESSAGE_POST_PROGRESS:</div><div class="line">            result.mTask.onProgressUpdate(result.mData);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>回调主线程的<code>onProgressUpdate</code>, 从而在主线程更新进度等, 实现与主线程通信；</p>
+<h6 id="默认线程池的实现"><a href="#默认线程池的实现" class="headerlink" title="默认线程池的实现"></a>默认线程池的实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> BlockingQueue&lt;Runnable&gt; sPoolWorkQueue =</div><div class="line">            <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(<span class="number">10</span>);</div><div class="line">...</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Executor THREAD_POOL_EXECUTOR</div><div class="line">        = <span class="keyword">new</span> ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE,</div><div class="line">                TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);</div></pre></td></tr></table></figure>
+<h6 id="AsyncTask相关类图"><a href="#AsyncTask相关类图" class="headerlink" title="AsyncTask相关类图"></a>AsyncTask相关类图</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/AsyncTask%E7%9B%B8%E5%85%B3%E7%B1%BB%E5%9B%BE.png?raw=true" alt="AsyncTask相关类图"></p>
+
+          
         
       
     </div>
@@ -1365,6 +1332,9 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1396,7 +1366,7 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1409,16 +1379,8 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/04/grep_include sed 用法/" itemprop="url">
-                  grep_include sed 使用
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/03/04/grep_include sed 用法/" itemprop="url">grep_include sed 使用</a></h1>
         
 
         <div class="post-meta">
@@ -1491,7 +1453,6 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1500,20 +1461,34 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       
         
           
-          grep include 使用作用：缩小搜索范围, 排除/包括文件或者目录
+            <h6 id="grep-include-使用"><a href="#grep-include-使用" class="headerlink" title="grep include 使用"></a>grep include 使用</h6><p>作用：缩小搜索范围, 排除/包括文件或者目录</p>
+<ul>
+<li>–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；</li>
+<li>–exclude “README” 排除所有README文件 </li>
+<li>–include-dir 仅在某些目录中搜索 </li>
+<li>–exclude-dir 排除某些目录 </li>
+<li>–exclude-from FILE 从文件FILE中读取需要排除的文件列表</li>
+</ul>
+<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -nHR &quot;class.*InputManager&quot; --exclude=*&#123;xml,txt,jd,html&#125; --exclude-dir .git</div></pre></td></tr></table></figure></p>
+<hr>
+<h6 id="set"><a href="#set" class="headerlink" title="set"></a>set</h6><ul>
+<li><p>set -x 是开启</p>
+</li>
+<li><p>set +x是关闭</p>
+</li>
+<li><p>set -o是查看 (xtrace)</p>
+</li>
+<li><p>set 去追中一段代码的显示情况</p>
+</li>
+</ul>
+<hr>
+<h6 id="批量替换"><a href="#批量替换" class="headerlink" title="批量替换"></a>批量替换</h6><p>sed -i “s/查找字段/替换字段/g”  <code>grep 查找字段 -rl 路径</code></p>
+<p>sed -i “s/查找字段/替换字段/g” ./*</p>
+<p>若字符串中包含“/“等特殊字符串，可以:</p>
+<p>sed -i “s#查找字段#替换字段#g”  <code>grep 查找字段 -rl 路径</code></p>
+<p>sed -i “s#查找字段#替换字段#g” ./*</p>
 
-–include *{.c,.cpp} 只在目录中搜索.c和.cpp文件；
-–exclude “README” 排除所有README文件 
-–include-dir 仅在某些目录中搜索 
-–exclude-dir 排除某些
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/grep_include sed 用法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1526,6 +1501,9 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1557,7 +1535,7 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1570,16 +1548,8 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/25/21-2-1 匿名内部类中创建线程/" itemprop="url">
-                  InnerThread1
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/25/21-2-1 匿名内部类中创建线程/" itemprop="url">InnerThread1</a></h1>
         
 
         <div class="post-meta">
@@ -1652,7 +1622,6 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1661,15 +1630,10 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       
         
           
-          InnerThread11234567891011121314151617181920212223242526272829303132333435class InnerThread1 &#123;    private int countDown = 5;    private Inner inne
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/25/21-2-1 匿名内部类中创建线程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h6 id="InnerThread1"><a href="#InnerThread1" class="headerlink" title="InnerThread1"></a>InnerThread1</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">InnerThread1</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> countDown = <span class="number">5</span>;</div><div class="line">    <span class="keyword">private</span> Inner inner;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Inner</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">            <span class="keyword">super</span>(name);</div><div class="line">            start(); <span class="comment">// 启动线程</span></div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">                System.out.println(<span class="keyword">this</span>);</div><div class="line">                <span class="keyword">if</span>(--countDown == <span class="number">0</span>)</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    sleep(<span class="number">10</span>);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            <span class="keyword">return</span> getName() + <span class="string">" : "</span> + countDown;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InnerThread1</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">        inner = <span class="keyword">new</span> Inner(name);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="InnerRunnable1"><a href="#InnerRunnable1" class="headerlink" title="InnerRunnable1"></a>InnerRunnable1</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">InnerRunnable1</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> countDown = <span class="number">5</span>;</div><div class="line">    <span class="keyword">private</span> Inner inner;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">        Thread t;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Inner</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated constructor stub</span></div><div class="line">            t = <span class="keyword">new</span> Thread(<span class="keyword">this</span>, name);</div><div class="line">            t.start(); <span class="comment">// 构造函数中启动线程</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">                System.out.println(<span class="keyword">this</span>);</div><div class="line">                <span class="keyword">if</span>(--countDown == <span class="number">0</span>)</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    TimeUnit.MILLISECONDS.sleep(<span class="number">10</span>);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            <span class="keyword">return</span> t.getName() + <span class="string">" : "</span> + countDown;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InnerRunnable1</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        inner = <span class="keyword">new</span> Inner(name);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1682,6 +1646,9 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1713,7 +1680,7 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1726,16 +1693,8 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/25/19.9 EntryMap/" itemprop="url">
-                  EntryMap
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/25/19.9 EntryMap/" itemprop="url">EntryMap</a></h1>
         
 
         <div class="post-meta">
@@ -1808,7 +1767,6 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1817,16 +1775,11 @@ Async 构造函数123456789101112131415161718192021222324252627282930public Asyn
       
         
           
-          百度了好久，折腾了半天，改了各种参数，算是撞破了头，最后试出来了。哎，搞移动端的，不太懂网页的这些东西，不说废话了，直接上解决方法：
-debug12345678910public class EnumMaps &#123;	public static void main(String[] args)
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/25/19.9 EntryMap/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>百度了好久，折腾了半天，改了各种参数，算是撞破了头，最后试出来了。<br>哎，搞移动端的，不太懂网页的这些东西，不说废话了，直接上解决方法：</p>
+<h6 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumMaps</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	    EnumMap&lt;AlarmPoints2, Command&gt; em = <span class="keyword">new</span> EnumMap&lt;AlarmPoints2, Command&gt;(AlarmPoints2.class);</div><div class="line">	    em.put(AlarmPoints2.KITCHEN, <span class="keyword">new</span> Command() &#123;</div><div class="line">	        <span class="meta">@Override</span></div><div class="line">	        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</div><div class="line">	            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">	            System.out.println(<span class="string">"My KICHEN"</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;);</div></pre></td></tr></table></figure>
+<h6 id="19-9-EntryMap"><a href="#19-9-EntryMap" class="headerlink" title="19.9 EntryMap"></a>19.9 EntryMap</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">package</span> com.java.num;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.EnumMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Command</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">action</span><span class="params">()</span></span>; <span class="comment">// value</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">enum</span> AlarmPoints2 &#123;</div><div class="line">START1, START2, LOBBY, OFFICE1, OFFICE2, OFFICE3, OFFICE4,</div><div class="line">BATHROOM, UTILITY, KITCHEN</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumMaps</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    EnumMap&lt;AlarmPoints2, Command&gt; em = <span class="keyword">new</span> EnumMap&lt;AlarmPoints2, Command&gt;(AlarmPoints2.class);</div><div class="line">    em.put(AlarmPoints2.KITCHEN, <span class="keyword">new</span> Command() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            System.out.println(<span class="string">"My KICHEN"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    em.put(AlarmPoints2.BATHROOM, <span class="keyword">new</span> Command() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">action</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">            System.out.println(<span class="string">"My BATHROOM"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">for</span>(Map.Entry&lt;AlarmPoints2, Command&gt; e : em.entrySet()) &#123;</div><div class="line">        e.getValue().action();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1839,6 +1792,9 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1864,7 +1820,7 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
   </nav>
 
 
-          
+
           </div>
           
 
@@ -1893,7 +1849,7 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true"
+               src="/images/avatar.gif"
                alt="TLLANO" />
           <p class="site-author-name" itemprop="name">TLLANO</p>
            
@@ -1901,7 +1857,7 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
@@ -1912,8 +1868,10 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
           
 
           
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories/">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1921,8 +1879,10 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags/">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1941,35 +1901,6 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
         
 
         <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Le773" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="" target="_blank" title="Others">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Others
-                </a>
-              </span>
-            
           
         </div>
 
@@ -2033,7 +1964,7 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
         
       </div>
     
-    
+
   </div>
 
   
@@ -2053,6 +1984,14 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -2079,33 +2018,36 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
 
 
   
-
 
 
   
@@ -2135,8 +2077,14 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
 
 
 
+
+
+
   
-  
+
+
+
+
 
   
 
@@ -2146,6 +2094,7 @@ debug12345678910public class EnumMaps &#123;	public static void main(String[] ar
 
   
 
+  
 
   
 

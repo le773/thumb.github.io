@@ -11,6 +11,12 @@
 
 
 
+
+
+
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
@@ -66,7 +72,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -80,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
@@ -126,11 +132,7 @@
 
 
 
-  <title> TLLANO -  </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>TLLANO</title>
   
 
 
@@ -145,13 +147,17 @@
 
 
 
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
@@ -282,7 +288,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -295,16 +301,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/24/荷兰国旗/" itemprop="url">
-                  荷兰国旗
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/24/荷兰国旗/" itemprop="url">荷兰国旗</a></h1>
         
 
         <div class="post-meta">
@@ -377,7 +375,6 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -386,15 +383,9 @@
       
         
           
-          编程之法2.7 荷兰国旗source code12345678910111213141516171819202122232425262728293031323334353637383940414243444546// get array length#define GET_ARRAY_LEN(arr
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/24/荷兰国旗/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="编程之法"><a href="#编程之法" class="headerlink" title="编程之法"></a>编程之法</h2><h5 id="2-7-荷兰国旗"><a href="#2-7-荷兰国旗" class="headerlink" title="2.7 荷兰国旗"></a>2.7 荷兰国旗</h5><p>source code<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get array length</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GET_ARRAY_LEN(array,len) &#123;len = (sizeof(array) / sizeof(array[0]));&#125;</span></div><div class="line"></div><div class="line"><span class="comment">// core</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">helan</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> start = <span class="number">0</span>, curr = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> end = n - <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (curr &lt;= end)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (arr[curr] == <span class="number">0</span>) &#123;</div><div class="line">            swap(&amp;arr[start], &amp;arr[curr]);</div><div class="line">            start++;</div><div class="line">            curr++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (arr[curr] == <span class="number">1</span>) &#123;</div><div class="line">            curr++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            swap(&amp;arr[curr], &amp;arr[end]);</div><div class="line">            end--;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// swap</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>* num1, <span class="keyword">int</span>* num2)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> tmp;</div><div class="line">    tmp = *num1;</div><div class="line">    *num1 = *num2;</div><div class="line">    *num2 = tmp;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// debug</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> arr[<span class="number">12</span>] = &#123; <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span> &#125;;</div><div class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</div><div class="line">    GET_ARRAY_LEN(arr, len);</div><div class="line">    helan(arr, len);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -407,6 +398,9 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -438,7 +432,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -451,16 +445,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/24/ViewPager/" itemprop="url">
-                  ViewPager
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/24/ViewPager/" itemprop="url">ViewPager</a></h1>
         
 
         <div class="post-meta">
@@ -533,7 +519,6 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -542,17 +527,17 @@
       
         
           
-          ViewPager
-PagerAdapterpublic int getCount()返回了当前要滑动视图的个数
-instantiateItem (ViewGroup container, int position)这个函数的实现的功能是创建指定位置的页面视图。适配器有责任增加即将创建的View视图
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/24/ViewPager/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>ViewPager</p>
+<h5 id="PagerAdapter"><a href="#PagerAdapter" class="headerlink" title="PagerAdapter"></a>PagerAdapter</h5><p><code>public int getCount()</code><br>返回了当前要滑动视图的个数</p>
+<p><code>instantiateItem (ViewGroup container, int position)</code><br>这个函数的实现的功能是创建指定位置的页面视图。适配器有责任增加即将创建的View视图到这里给定的container中</p>
+<p>返回值：返回一个代表新增视图页面的Object（Key），这里没必要非要返回视图本身，也可以这个页面的其它容器。其实我的理解是可以代表当前页面的任意值，只要你可以与你增加的View一一对应即可，比如position变量也可以做为Key.<br>第一：将参数里给定的position的视图，增加到conatiner中，供其创建并显示.<br>第二：返回当前position的View做为此视图的Key</p>
+<p><code>public abstract boolean isViewFromObject (View view, Object object)</code><br>功能：该函数用来判断instantiateItem(ViewGroup, int)函数所返回来的Key与一个页面视图是否是代表的同一个视图(即它俩是否是对应的，对应的表示同一个View)</p>
+<p>返回值：如果对应的是同一个View，返回True，否则返回False。</p>
+<p><code>public void destroyItem (ViewGroup container, int position, Object object)</code><br>该方法实现的功能是移除一个给定位置的页面。适配器有责任从容器中删除这个视图。这是为了确保在finishUpdate(viewGroup)返回时视图能够被移除。</p>
+<h5 id="PageChangeListener"><a href="#PageChangeListener" class="headerlink" title="PageChangeListener"></a>PageChangeListener</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class MyOnPageChangeListener implements ViewPager.OnPageChangeListener &#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 当页面滚动了的时候回调这个方法</div><div class="line">     * @param position 当前页面的位置</div><div class="line">     * @param positionOffset 滑动页面的百分比</div><div class="line">     * @param positionOffsetPixels 在屏幕上滑动的像数</div><div class="line">     */</div><div class="line">    @Override</div><div class="line">    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 当某个页面被选中了的时候回调</div><div class="line">     * @param position 被选中页面的位置</div><div class="line">     */</div><div class="line">    @Override</div><div class="line">    public void onPageSelected(int position) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     当页面滚动状态变化的时候回调这个方法</div><div class="line">     静止-&gt;滑动</div><div class="line">     滑动--&gt;静止</div><div class="line">     静止--&gt;拖拽</div><div class="line">     */</div><div class="line">    @Override</div><div class="line">    public void onPageScrollStateChanged(int state) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    tools:context=&quot;android.com.tllano.myappone.activity.ViewPagerActivity&quot;&gt;</div><div class="line"></div><div class="line">    &lt;android.support.v4.view.ViewPager</div><div class="line">        android:id=&quot;@+id/viewpager&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;180dp&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;LinearLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignBottom=&quot;@id/viewpager&quot;</div><div class="line">        android:background=&quot;#44000000&quot;</div><div class="line">        android:orientation=&quot;vertical&quot;</div><div class="line">        android:padding=&quot;5dp&quot;&gt;</div><div class="line"></div><div class="line">        &lt;TextView</div><div class="line">            android:id=&quot;@+id/tv_title&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:gravity=&quot;center_horizontal&quot;</div><div class="line">            android:padding=&quot;3dp&quot;</div><div class="line">            android:text=&quot;美国队长3&quot;</div><div class="line">            android:textColor=&quot;#ffffff&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;LinearLayout</div><div class="line">            android:id=&quot;@+id/ll_point_group&quot;</div><div class="line">            android:layout_width=&quot;wrap_content&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:layout_gravity=&quot;center_horizontal&quot;</div><div class="line">            android:orientation=&quot;horizontal&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<h5 id="当前指示页面"><a href="#当前指示页面" class="headerlink" title="当前指示页面"></a>当前指示页面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">LinearLayout ll_point_group;</div><div class="line">for (int i = 0 ;i &lt; imageIds.length;i++)&#123; // page adapter</div><div class="line"></div><div class="line">    //添加点 page adapter</div><div class="line">    ImageView point = new ImageView(this);</div><div class="line">    point.setBackgroundResource(R.drawable.point_selector);</div><div class="line">    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(8,8);</div><div class="line"></div><div class="line">    if(i==0)&#123;</div><div class="line">        point.setEnabled(true); //显示红色</div><div class="line">    &#125;else&#123;</div><div class="line">        point.setEnabled(false);//显示灰色</div><div class="line">        params.leftMargin = 8; // 左间距</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    point.setLayoutParams(params);</div><div class="line">    ll_point_group.addView(point);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -565,6 +550,9 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -596,7 +584,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -609,16 +597,8 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/24/HashMap/" itemprop="url">
-                  HashMap
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/24/HashMap/" itemprop="url">HashMap</a></h1>
         
 
         <div class="post-meta">
@@ -691,7 +671,6 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -700,17 +679,10 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       
         
           
-          HashMapdebug
-自定义HashMap类图
+            <h5 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h5><p>debug</p>
+<h5 id="自定义HashMap类图"><a href="#自定义HashMap类图" class="headerlink" title="自定义HashMap类图"></a>自定义HashMap类图</h5><p><img src="https://raw.githubusercontent.com/le773/le773Page/resource/clipboard.png" alt="MyHashMap"></p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/24/HashMap/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -723,6 +695,9 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -754,7 +729,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -767,16 +742,8 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/02/24/冒泡排序/" itemprop="url">
-                  冒泡排序
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/02/24/冒泡排序/" itemprop="url">冒泡排序</a></h1>
         
 
         <div class="post-meta">
@@ -849,7 +816,6 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -858,16 +824,10 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       
         
           
-          冒泡Java
-1234567891011121314151617181920212223public class BubbleSort&#123;     public static void main(String[] args)&#123;         int score[] = &#123
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/24/冒泡排序/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h4 id="冒泡Java"><a href="#冒泡Java" class="headerlink" title="冒泡Java"></a>冒泡Java</h4><p><img src="http://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif?_=2423861" alt="冒泡"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSort</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">         <span class="keyword">int</span> score[] = &#123;<span class="number">67</span>, <span class="number">69</span>, <span class="number">75</span>, <span class="number">87</span>, <span class="number">89</span>, <span class="number">90</span>, <span class="number">99</span>, <span class="number">100</span>&#125;;</div><div class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; score.length -<span class="number">1</span>; i++)&#123;    <span class="comment">//最多做n-1趟排序</span></div><div class="line">             <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; score.length - i - <span class="number">1</span>; j++)&#123;    <span class="comment">//对当前无序区间score[0......length-i-1]进行排序(j的范围很关键，这个范围是在逐步缩小的)</span></div><div class="line">                 <span class="keyword">if</span>(score[j] &lt; score[j + <span class="number">1</span>])&#123;    <span class="comment">//把小的值交换到后面</span></div><div class="line">                     <span class="keyword">int</span> temp = score[j];</div><div class="line">                     score[j] = score[j + <span class="number">1</span>];</div><div class="line">                     score[j + <span class="number">1</span>] = temp;</div><div class="line">                 &#125;</div><div class="line">             &#125;            </div><div class="line">             System.out.print(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"次排序结果："</span>);</div><div class="line">             <span class="keyword">for</span>(<span class="keyword">int</span> a = <span class="number">0</span>; a &lt; score.length; a++)&#123;</div><div class="line">                 System.out.print(score[a] + <span class="string">"\t"</span>);</div><div class="line">             &#125;</div><div class="line">             System.out.println(<span class="string">""</span>);</div><div class="line">         &#125;</div><div class="line">             System.out.print(<span class="string">"最终排序结果："</span>);</div><div class="line">             <span class="keyword">for</span>(<span class="keyword">int</span> a = <span class="number">0</span>; a &lt; score.length; a++)&#123;</div><div class="line">                 System.out.print(score[a] + <span class="string">"\t"</span>);</div><div class="line">        &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -880,6 +840,9 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -905,7 +868,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
   </nav>
 
 
-          
+
           </div>
           
 
@@ -934,7 +897,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="https://github.com/le773/le773Page/blob/master/images/avatartwo.jpg?raw=true"
+               src="/images/avatar.gif"
                alt="TLLANO" />
           <p class="site-author-name" itemprop="name">TLLANO</p>
            
@@ -942,7 +905,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
           
         </div>
         <nav class="site-state motion-element">
-        
+
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
@@ -953,8 +916,10 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
           
 
           
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories/">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -962,8 +927,10 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags/">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -982,35 +949,6 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
         
 
         <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Le773" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="" target="_blank" title="Others">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  Others
-                </a>
-              </span>
-            
           
         </div>
 
@@ -1074,7 +1012,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
         
       </div>
     
-    
+
   </div>
 
   
@@ -1094,6 +1032,14 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
 
 
   
+
+
+
+
+
+
+
+
 
 
 
@@ -1120,33 +1066,36 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
 
 
   
-
 
 
   
@@ -1176,8 +1125,14 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
 
 
 
+
+
+
   
-  
+
+
+
+
 
   
 
@@ -1187,6 +1142,7 @@ instantiateItem (ViewGroup container, int position)这个函数的实现的功�
 
   
 
+  
 
   
 
