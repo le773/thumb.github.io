@@ -71,7 +71,7 @@
 <link href="/thumb.github.io/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="datastruct,collection," />
+  <meta name="keywords" content="algorithm," />
 
 
 
@@ -87,24 +87,19 @@
 
 
 
-<meta name="description" content="自定义HashMap类图
-紫色为迭代器的父接口
-参考：    think in java">
+<meta name="description" content="分析局部最小可以使用二分法完成，隐藏了一个在定义局部最小时就隐含的规律，即：一个不存在相同元素的数组一定存在局部最小值，因为只需要找到一个局部最小值，这样就可以使用二分查找将数组规模逐渐减小。
+具体过程如下：1231. 如果 arr[mid]&amp;lt;arr[mid+1] &amp;amp;&amp;amp; arr[mid]&amp;lt;arr[mid-1], arr[mid]为局部最小，返回2. 否则 arr[mid">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HashMap">
-<meta property="og:url" content="https://le773.github.io/thumb.github.io/2017/02/24/HashMap/index.html">
+<meta property="og:title" content="局部最小值">
+<meta property="og:url" content="https://le773.github.io/thumb.github.io/2017/05/24/局部最小值/index.html">
 <meta property="og:site_name" content="TLLANO">
-<meta property="og:description" content="自定义HashMap类图
-紫色为迭代器的父接口
-参考：    think in java">
-<meta property="og:image" content="https://raw.githubusercontent.com/le773/le773Page/resource/clipboard.png">
-<meta property="og:updated_time" content="2017-06-25T04:15:50.440Z">
+<meta property="og:description" content="分析局部最小可以使用二分法完成，隐藏了一个在定义局部最小时就隐含的规律，即：一个不存在相同元素的数组一定存在局部最小值，因为只需要找到一个局部最小值，这样就可以使用二分查找将数组规模逐渐减小。
+具体过程如下：1231. 如果 arr[mid]&amp;lt;arr[mid+1] &amp;amp;&amp;amp; arr[mid]&amp;lt;arr[mid-1], arr[mid]为局部最小，返回2. 否则 arr[mid">
+<meta property="og:updated_time" content="2017-06-25T04:37:52.988Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HashMap">
-<meta name="twitter:description" content="自定义HashMap类图
-紫色为迭代器的父接口
-参考：    think in java">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/le773/le773Page/resource/clipboard.png">
+<meta name="twitter:title" content="局部最小值">
+<meta name="twitter:description" content="分析局部最小可以使用二分法完成，隐藏了一个在定义局部最小时就隐含的规律，即：一个不存在相同元素的数组一定存在局部最小值，因为只需要找到一个局部最小值，这样就可以使用二分查找将数组规模逐渐减小。
+具体过程如下：1231. 如果 arr[mid]&amp;lt;arr[mid+1] &amp;amp;&amp;amp; arr[mid]&amp;lt;arr[mid-1], arr[mid]为局部最小，返回2. 否则 arr[mid">
 
 
 
@@ -132,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://le773.github.io/thumb.github.io/2017/02/24/HashMap/"/>
+  <link rel="canonical" href="https://le773.github.io/thumb.github.io/2017/05/24/局部最小值/"/>
 
 
 
 
 
-  <title> HashMap | TLLANO </title>
+  <title> 局部最小值 | TLLANO </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +272,7 @@
   
 
   <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/02/24/HashMap/">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/05/24/局部最小值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
@@ -298,7 +293,7 @@
             
             
               
-                HashMap
+                局部最小值
               
             
           </h1>
@@ -313,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-24T00:39:14+08:00">
-                2017-02-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T00:39:14+08:00">
+                2017-05-24
               </time>
             
 
@@ -336,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/thumb.github.io/categories/collection/" itemprop="url" rel="index">
-                    <span itemprop="name">collection</span>
+                  <a href="/thumb.github.io/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
                   </a>
                 </span>
 
@@ -371,9 +366,11 @@
       
 
       
-        <h5 id="自定义HashMap类图"><a href="#自定义HashMap类图" class="headerlink" title="自定义HashMap类图"></a>自定义HashMap类图</h5><p><img src="https://raw.githubusercontent.com/le773/le773Page/resource/clipboard.png" alt="MyHashMap"></p>
-<p>紫色为迭代器的父接口</p>
-<p>参考：<br>    think in java</p>
+        <h6 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h6><p>局部最小可以使用二分法完成，隐藏了一个在定义局部最小时就隐含的规律，<br>即：一个不存在相同元素的数组一定存在局部最小值，因为只需要找到一个局部最小值，这样就可以使用二分查找将数组规模逐渐减小。</p>
+<p>具体过程如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 如果 arr[mid]&lt;arr[mid+1] &amp;&amp; arr[mid]&lt;arr[mid-1], arr[mid]为局部最小，返回</div><div class="line">2. 否则 arr[mid]不是最小，则必有 arr[mid+1]&gt;arr[mid] 或是 arr[mid-1]&gt;arr[mid],这时我们选择min(arr[mid+1],arr[mid-1])的一边形成一个新数组，这个数组也是不存在相同元素，而且边界条件也符合，所以肯定含有局部最小值。</div><div class="line">3. 对新数组重复进行 1,2，直到找到局部最小即可</div></pre></td></tr></table></figure></p>
+<h6 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// core</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">localMin</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (start &gt;= end)</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">if</span> (arr[mid - <span class="number">1</span>] &gt; arr[mid] &amp;&amp; arr[mid] &lt; arr[mid + <span class="number">1</span>]) &#123;</div><div class="line">        <span class="keyword">return</span> mid;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (arr[mid - <span class="number">1</span>] &gt; arr[mid + <span class="number">1</span>]) &#123;</div><div class="line">        start = mid + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        end = mid - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    localMin(arr, start, end);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> arr[<span class="number">7</span>] = &#123; <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">8</span> &#125;;</div><div class="line">    <span class="keyword">int</span> num = localMin(arr, <span class="number">0</span>, <span class="number">6</span>);</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; arr[num] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h6><p><a href="https://www.zhihu.com/question/39151990" target="_blank" rel="external">https://www.zhihu.com/question/39151990</a></p>
 
       
     </div>
@@ -397,9 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/thumb.github.io/tags/datastruct/" rel="tag"># datastruct</a>
-          
-            <a href="/thumb.github.io/tags/collection/" rel="tag"># collection</a>
+            <a href="/thumb.github.io/tags/algorithm/" rel="tag"># algorithm</a>
           
         </div>
       
@@ -412,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/thumb.github.io/2017/02/21/hexo错误记录/" rel="next" title="hexo错误记录">
-                <i class="fa fa-chevron-left"></i> hexo错误记录
+              <a href="/thumb.github.io/2017/03/04/不使用第三个变量交换两个变量的值/" rel="next" title="不使用第三个变量交换两个变量的值">
+                <i class="fa fa-chevron-left"></i> 不使用第三个变量交换两个变量的值
               </a>
             
           </div>
@@ -422,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/thumb.github.io/2017/02/24/冒泡排序/" rel="prev" title="冒泡排序">
-                冒泡排序 <i class="fa fa-chevron-right"></i>
+              <a href="/thumb.github.io/2017/06/23/二叉查找树 最近公共祖先LCA问题/" rel="prev" title="二叉查找树 最近公共祖先LCA问题">
+                二叉查找树 最近公共祖先LCA问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -578,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义HashMap类图"><span class="nav-number">1.</span> <span class="nav-text">自定义HashMap类图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#debug"><span class="nav-number">3.</span> <span class="nav-text">debug</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
