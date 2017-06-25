@@ -267,152 +267,6 @@
   
 
   <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/06/25/两个栈实现队列分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TLLANO">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/15121859?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TLLANO">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/thumb.github.io/2017/06/25/两个栈实现队列分析/" itemprop="url">
-                  两个栈实现队列分析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T10:39:14+08:00">
-                2017-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/thumb.github.io/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h6 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h6><p><code>根据队列(先进先出) 栈(后进先出) 的特征，利用两个栈A B 
-元素首先插入B中，当需要出栈时，先将B中的元素插入到A, 然后从A中出栈;</code></p>
-<h6 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// core</span></div><div class="line"><span class="keyword">int</span> Queue::DeQueue() &#123;</div><div class="line">    <span class="keyword">if</span> (StackA.empty()) &#123;</div><div class="line">        <span class="keyword">while</span> (!StackB.empty())</div><div class="line">        &#123;</div><div class="line">            StackA.push(StackB.pop());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> StackA.pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="Queue-h"><a href="#Queue-h" class="headerlink" title="Queue.h"></a>Queue.h</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#pragma once</div><div class="line"></div><div class="line">#ifndef QUEUE_H</div><div class="line">#define QUEUE_H</div><div class="line"></div><div class="line">#include &quot;Stack.h&quot;</div><div class="line"></div><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">class Queue</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    Queue();</div><div class="line">    ~Queue();</div><div class="line">    int MaxValue(int x, int y);</div><div class="line">    int max();</div><div class="line">    void EnQueue(int x);</div><div class="line">    int DeQueue();</div><div class="line">private:</div><div class="line">    Stack StackA;</div><div class="line">    Stack StackB;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif // !QUEUE_H</div></pre></td></tr></table></figure>
-<h6 id="Queue-cpp"><a href="#Queue-cpp" class="headerlink" title="Queue.cpp"></a>Queue.cpp</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#include &quot;Queue.h&quot;</div><div class="line"></div><div class="line">Queue::Queue()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">Queue::~Queue()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Queue::MaxValue(int x, int y) &#123;</div><div class="line">    return x &gt; y ? x : y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Queue::max() &#123;</div><div class="line">    return MaxValue(StackA.Max(), StackB.Max());</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Queue::EnQueue(int x) &#123;</div><div class="line">    StackB.push(x);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Queue::DeQueue() &#123;</div><div class="line">    if (StackA.empty()) &#123;</div><div class="line">        while (!StackB.empty())</div><div class="line">        &#123;</div><div class="line">            StackA.push(StackB.pop());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return StackA.pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="Stack-h"><a href="#Stack-h" class="headerlink" title="Stack.h"></a>Stack.h</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#pragma once</div><div class="line"></div><div class="line">#ifndef STACK_H</div><div class="line">#define STACK_H</div><div class="line"></div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">#define MX 10000</div><div class="line"></div><div class="line">class Stack</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    Stack();</div><div class="line">    ~Stack();</div><div class="line">    bool push(int p);</div><div class="line">    bool empty();</div><div class="line">    int pop();</div><div class="line">    int Max();</div><div class="line">    void print();</div><div class="line">private:</div><div class="line">    /*Type statckItem[];*/</div><div class="line">    int stackItem[MX];</div><div class="line">    int link2NextMaxItem[MX];</div><div class="line">    int stackTop = -1;</div><div class="line">    int maxStackItemIndex;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif // !STACK_H</div></pre></td></tr></table></figure>
-<h6 id="Stack-cpp"><a href="#Stack-cpp" class="headerlink" title="Stack.cpp"></a>Stack.cpp</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#include &quot;Stack.h&quot;</div><div class="line"></div><div class="line">Stack::Stack()/* :stackTop(-1)*/</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Stack::~Stack()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bool Stack::empty() &#123;</div><div class="line">    std::clog &lt;&lt; &quot;empty stackTop :&quot; &lt;&lt; stackTop &lt;&lt; std::endl;</div><div class="line">    return stackTop &gt;= 0 ? false : true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bool Stack::push(int p) &#123;</div><div class="line">    std::clog &lt;&lt; &quot;push stackTop :&quot; &lt;&lt; stackTop &lt;&lt; std::endl;</div><div class="line">    if (stackTop &gt; MX)</div><div class="line">        return false;</div><div class="line">    else &#123;</div><div class="line">        stackItem[++stackTop] = p;</div><div class="line">        //link2NextMaxItem[top] = p;</div><div class="line">        if (p &gt; Max()) &#123;</div><div class="line">            link2NextMaxItem[stackTop] = maxStackItemIndex;</div><div class="line">            maxStackItemIndex = stackTop;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            link2NextMaxItem[stackTop] = -1;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Stack::pop() &#123;</div><div class="line">    int ret;</div><div class="line">    if (stackTop &lt;= -1)</div><div class="line">    &#123;</div><div class="line">        throw std::exception(&quot;stack no memeber fail&quot;);</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        ret = stackItem[stackTop];</div><div class="line">        if (maxStackItemIndex == stackTop) &#123;</div><div class="line">            maxStackItemIndex = link2NextMaxItem[stackTop];</div><div class="line">        &#125;</div><div class="line">        stackTop--;</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Stack::Max() &#123;</div><div class="line">    /*if (maxStackItemIndex == stackTop) &#123;</div><div class="line">        maxStackItemIndex = link2NextMaxItem[stackTop];</div><div class="line">    &#125;*/</div><div class="line">    if (maxStackItemIndex &gt;= 0)</div><div class="line">        return stackItem[maxStackItemIndex];</div><div class="line">    else</div><div class="line">        return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/06/25/选择排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -655,6 +509,152 @@
           
             <h5 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h5><h6 id="issort-h"><a href="#issort-h" class="headerlink" title="issort.h"></a>issort.h</h6><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int issort(void *data, int size, int esize, int (*compare)(const void *key1, const void *key2));</div></pre></td></tr></table></figure>
 <h6 id="issort-c"><a href="#issort-c" class="headerlink" title="issort.c"></a>issort.c</h6><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#include "issort.h"</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">int issort(void *data, int size, int esize, int(*compare)(const void *key1, const void *key2)) &#123;</div><div class="line">    char *a = data;</div><div class="line">    void *key;</div><div class="line">    int i, j;</div><div class="line"></div><div class="line">    if ((key = (char*)malloc(esize)) != NULL)</div><div class="line">        return -1;</div><div class="line">    for (j = 1; j &lt; size; j++) &#123;</div><div class="line">        memcpy(key, &amp;a[j * esize], esize);</div><div class="line">        i = j - 1;</div><div class="line">        while (i &gt;= 0 &amp;&amp; compare(&amp;a[i * esize], key) &gt; 0) &#123;</div><div class="line">            memcpy(&amp;a[(i+1) * esize], &amp;a[i * esize], esize); // 大的数据往后排</div><div class="line">            i--;</div><div class="line">        &#125;</div><div class="line">        memcpy(&amp;a[(i + 1) * esize], key, esize); // key 本次遍历的最终位置</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    free(key);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/06/25/两个栈实现队列分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TLLANO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/15121859?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLLANO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/thumb.github.io/2017/06/25/两个栈实现队列分析/" itemprop="url">
+                  两个栈实现队列分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T10:39:14+08:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/thumb.github.io/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h6><p><code>根据队列(先进先出) 栈(后进先出) 的特征，利用两个栈A B 
+元素首先插入B中，当需要出栈时，先将B中的元素插入到A, 然后从A中出栈;</code></p>
+<h6 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// core</span></div><div class="line"><span class="keyword">int</span> Queue::DeQueue() &#123;</div><div class="line">    <span class="keyword">if</span> (StackA.empty()) &#123;</div><div class="line">        <span class="keyword">while</span> (!StackB.empty())</div><div class="line">        &#123;</div><div class="line">            StackA.push(StackB.pop());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> StackA.pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="Queue-h"><a href="#Queue-h" class="headerlink" title="Queue.h"></a>Queue.h</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#pragma once</div><div class="line"></div><div class="line">#ifndef QUEUE_H</div><div class="line">#define QUEUE_H</div><div class="line"></div><div class="line">#include &quot;Stack.h&quot;</div><div class="line"></div><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">class Queue</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    Queue();</div><div class="line">    ~Queue();</div><div class="line">    int MaxValue(int x, int y);</div><div class="line">    int max();</div><div class="line">    void EnQueue(int x);</div><div class="line">    int DeQueue();</div><div class="line">private:</div><div class="line">    Stack StackA;</div><div class="line">    Stack StackB;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif // !QUEUE_H</div></pre></td></tr></table></figure>
+<h6 id="Queue-cpp"><a href="#Queue-cpp" class="headerlink" title="Queue.cpp"></a>Queue.cpp</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#include &quot;Queue.h&quot;</div><div class="line"></div><div class="line">Queue::Queue()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">Queue::~Queue()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Queue::MaxValue(int x, int y) &#123;</div><div class="line">    return x &gt; y ? x : y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Queue::max() &#123;</div><div class="line">    return MaxValue(StackA.Max(), StackB.Max());</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Queue::EnQueue(int x) &#123;</div><div class="line">    StackB.push(x);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Queue::DeQueue() &#123;</div><div class="line">    if (StackA.empty()) &#123;</div><div class="line">        while (!StackB.empty())</div><div class="line">        &#123;</div><div class="line">            StackA.push(StackB.pop());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return StackA.pop();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="Stack-h"><a href="#Stack-h" class="headerlink" title="Stack.h"></a>Stack.h</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#pragma once</div><div class="line"></div><div class="line">#ifndef STACK_H</div><div class="line">#define STACK_H</div><div class="line"></div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;iostream&gt;</div><div class="line"></div><div class="line">#define MX 10000</div><div class="line"></div><div class="line">class Stack</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    Stack();</div><div class="line">    ~Stack();</div><div class="line">    bool push(int p);</div><div class="line">    bool empty();</div><div class="line">    int pop();</div><div class="line">    int Max();</div><div class="line">    void print();</div><div class="line">private:</div><div class="line">    /*Type statckItem[];*/</div><div class="line">    int stackItem[MX];</div><div class="line">    int link2NextMaxItem[MX];</div><div class="line">    int stackTop = -1;</div><div class="line">    int maxStackItemIndex;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">#endif // !STACK_H</div></pre></td></tr></table></figure>
+<h6 id="Stack-cpp"><a href="#Stack-cpp" class="headerlink" title="Stack.cpp"></a>Stack.cpp</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#include &quot;Stack.h&quot;</div><div class="line"></div><div class="line">Stack::Stack()/* :stackTop(-1)*/</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Stack::~Stack()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bool Stack::empty() &#123;</div><div class="line">    std::clog &lt;&lt; &quot;empty stackTop :&quot; &lt;&lt; stackTop &lt;&lt; std::endl;</div><div class="line">    return stackTop &gt;= 0 ? false : true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bool Stack::push(int p) &#123;</div><div class="line">    std::clog &lt;&lt; &quot;push stackTop :&quot; &lt;&lt; stackTop &lt;&lt; std::endl;</div><div class="line">    if (stackTop &gt; MX)</div><div class="line">        return false;</div><div class="line">    else &#123;</div><div class="line">        stackItem[++stackTop] = p;</div><div class="line">        //link2NextMaxItem[top] = p;</div><div class="line">        if (p &gt; Max()) &#123;</div><div class="line">            link2NextMaxItem[stackTop] = maxStackItemIndex;</div><div class="line">            maxStackItemIndex = stackTop;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            link2NextMaxItem[stackTop] = -1;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Stack::pop() &#123;</div><div class="line">    int ret;</div><div class="line">    if (stackTop &lt;= -1)</div><div class="line">    &#123;</div><div class="line">        throw std::exception(&quot;stack no memeber fail&quot;);</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        ret = stackItem[stackTop];</div><div class="line">        if (maxStackItemIndex == stackTop) &#123;</div><div class="line">            maxStackItemIndex = link2NextMaxItem[stackTop];</div><div class="line">        &#125;</div><div class="line">        stackTop--;</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int Stack::Max() &#123;</div><div class="line">    /*if (maxStackItemIndex == stackTop) &#123;</div><div class="line">        maxStackItemIndex = link2NextMaxItem[stackTop];</div><div class="line">    &#125;*/</div><div class="line">    if (maxStackItemIndex &gt;= 0)</div><div class="line">        return stackItem[maxStackItemIndex];</div><div class="line">    else</div><div class="line">        return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -1136,7 +1136,7 @@
   
 
   <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/03/04/AsyncTask源码分析/">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/03/04/activity fragment 生命周期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
@@ -1158,8 +1158,8 @@
             
               
                 
-                <a class="post-title-link" href="/thumb.github.io/2017/03/04/AsyncTask源码分析/" itemprop="url">
-                  AsyncTask 源码分析
+                <a class="post-title-link" href="/thumb.github.io/2017/03/04/activity fragment 生命周期/" itemprop="url">
+                  activity fragment 生命周期对比
                 </a>
               
             
@@ -1235,23 +1235,10 @@
       
         
           
-            <p>Async源码解析</p>
-<h6 id="Async-构造函数"><a href="#Async-构造函数" class="headerlink" title="Async 构造函数"></a>Async 构造函数</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">AsyncTask</span><span class="params">()</span> </span>&#123;</div><div class="line">    mWorker = <span class="keyword">new</span> WorkerRunnable&lt;Params, Result&gt;() &#123;</div><div class="line">		<span class="comment">// 重写父类call方法，并通过postResult发送到主线程；</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Result <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">            mTaskInvoked.set(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">            Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);</div><div class="line">            <span class="comment">//noinspection unchecked</span></div><div class="line">            Result result = doInBackground(mParams);</div><div class="line">            Binder.flushPendingCommands();</div><div class="line">            <span class="keyword">return</span> postResult(result);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">	<span class="comment">// 初始化FutureTask成员变量callable</span></div><div class="line">    mFuture = <span class="keyword">new</span> FutureTask&lt;Result&gt;(mWorker) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">done</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                postResultIfNotInvoked(get());</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                android.util.Log.w(LOG_TAG, e);</div><div class="line">            &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"An error occurred while executing doInBackground()"</span>,</div><div class="line">                        e.getCause());</div><div class="line">            &#125; <span class="keyword">catch</span> (CancellationException e) &#123;</div><div class="line">                postResultIfNotInvoked(<span class="keyword">null</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>WorkerRunable</code>实现了父类接口<code>Callable</code>中的<code>Call</code>方法；<br>然后被封装到<code>FutureTask</code>的<code>callable</code>;</p>
-<h6 id="AysncTask-execute"><a href="#AysncTask-execute" class="headerlink" title="AysncTask.execute()"></a>AysncTask.execute()</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;Params, Progress, Result&gt; <span class="title">execute</span><span class="params">(Params... params)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> executeOnExecutor(sDefaultExecutor, params);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>sDefaultExecutor</code>可通过<code>setDefaultExecutor(Executor exec)</code>指定线程池, 如果没有指定<code>sDefaultExecutor</code>为AsyncTask自己的<code>SERIAL_EXECUTOR</code>;</p>
-<h6 id="executeOnExecutor"><a href="#executeOnExecutor" class="headerlink" title="executeOnExecutor"></a>executeOnExecutor</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;Params, Progress, Result&gt; <span class="title">executeOnExecutor</span><span class="params">(Executor exec,</span></span></div><div class="line">        Params... params) &#123;</div><div class="line">    <span class="keyword">if</span> (mStatus != Status.PENDING) &#123;</div><div class="line">        <span class="keyword">switch</span> (mStatus) &#123;</div><div class="line">            <span class="keyword">case</span> RUNNING:</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></div><div class="line">                        + <span class="string">" the task is already running."</span>);</div><div class="line">            <span class="keyword">case</span> FINISHED:</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Cannot execute task:"</span></div><div class="line">                        + <span class="string">" the task has already been executed "</span></div><div class="line">                        + <span class="string">"(a task can be executed only once)"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    mStatus = Status.RUNNING;</div><div class="line"></div><div class="line">    onPreExecute();</div><div class="line"></div><div class="line">    mWorker.mParams = params;</div><div class="line">    exec.execute(mFuture);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>将要执行的task 封装到<code>mWorker</code>, <code>mWorker</code>的类型为<code>WorkerRunnable&lt;Params, Result&gt; implements Callable&lt;Result&gt;</code>, <code>mWorker</code>又被封装到<code>FutureTask</code>的<code>callable</code>, 所以在<code>FutureTask</code>中会调用<code>callable</code>,<code>call()</code>方法，最终会调用<code>WorkerRunnable</code>的<code>call()</code>;</p>
-<h6 id="FutureTask的构造函数"><a href="#FutureTask的构造函数" class="headerlink" title="FutureTask的构造函数"></a>FutureTask的构造函数</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">FutureTask</span><span class="params">(Callable&lt;V&gt; callable)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (callable == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">    <span class="keyword">this</span>.callable = callable;</div><div class="line">    <span class="keyword">this</span>.state = NEW;       <span class="comment">// ensure visibility of callable</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="exe-execute的默认实现"><a href="#exe-execute的默认实现" class="headerlink" title="exe.execute的默认实现"></a>exe.execute的默认实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SerialExecutor</span> <span class="keyword">implements</span> <span class="title">Executor</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> ArrayDeque&lt;Runnable&gt; mTasks = <span class="keyword">new</span> ArrayDeque&lt;Runnable&gt;();</div><div class="line">    Runnable mActive;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(<span class="keyword">final</span> Runnable r)</span> </span>&#123;</div><div class="line">        mTasks.offer(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    r.run();</div><div class="line">                &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                    scheduleNext();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span> (mActive == <span class="keyword">null</span>) &#123;</div><div class="line">            scheduleNext();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">	<span class="comment">// 执行下个任务</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">scheduleNext</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((mActive = mTasks.poll()) != <span class="keyword">null</span>) &#123;</div><div class="line">            THREAD_POOL_EXECUTOR.execute(mActive);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>execute(final Runnable r)</code>中<code>r</code>的类型为<code>FutureTask</code>, 所以<code>r.run</code>最终调用的方法为<code>FutureTask.run</code>, <code>Runnable r</code>经过包装任务最终添加进类型为<code>ArrayDeque&lt;Runnable&gt;</code>的<code>mTasks</code>;<br>由<code>scheduleNext</code>可知，任务的执行为串行;</p>
-<h6 id="FutureTask-run的实现"><a href="#FutureTask-run的实现" class="headerlink" title="FutureTask.run的实现"></a>FutureTask.run的实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (state != NEW ||</div><div class="line">        !U.compareAndSwapObject(<span class="keyword">this</span>, RUNNER, <span class="keyword">null</span>, Thread.currentThread()))</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Callable&lt;V&gt; c = callable;</div><div class="line">        <span class="keyword">if</span> (c != <span class="keyword">null</span> &amp;&amp; state == NEW) &#123;</div><div class="line">            V result;</div><div class="line">            <span class="keyword">boolean</span> ran;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                result = c.call(); <span class="comment">// 回掉call()</span></div><div class="line">                ran = <span class="keyword">true</span>;</div><div class="line">            &#125; <span class="keyword">catch</span> (Throwable ex) &#123;</div><div class="line">                result = <span class="keyword">null</span>;</div><div class="line">                ran = <span class="keyword">false</span>;</div><div class="line">                setException(ex);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (ran)</div><div class="line">                set(result);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">		<span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>由AsyncTask构造函数可知, <code>c.call()</code>最终会调用<code>WorkerRunnable</code>的方法，并通过<code>postResult</code>发送到主线程;</p>
-<h6 id="postResult向主线程发送消息"><a href="#postResult向主线程发送消息" class="headerlink" title="postResult向主线程发送消息"></a>postResult向主线程发送消息</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Result <span class="title">postResult</span><span class="params">(Result result)</span> </span>&#123;</div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">    Message message = getHandler().obtainMessage(MESSAGE_POST_RESULT,</div><div class="line">            <span class="keyword">new</span> AsyncTaskResult&lt;Result&gt;(<span class="keyword">this</span>, result));</div><div class="line">    message.sendToTarget();</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="handleMessage-实现"><a href="#handleMessage-实现" class="headerlink" title="handleMessage 实现"></a>handleMessage 实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">    AsyncTaskResult&lt;?&gt; result = (AsyncTaskResult&lt;?&gt;) msg.obj;</div><div class="line">    <span class="keyword">switch</span> (msg.what) &#123;</div><div class="line">        <span class="keyword">case</span> MESSAGE_POST_RESULT:</div><div class="line">            <span class="comment">// There is only one result</span></div><div class="line">            result.mTask.finish(result.mData[<span class="number">0</span>]);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MESSAGE_POST_PROGRESS:</div><div class="line">            result.mTask.onProgressUpdate(result.mData);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>回调主线程的<code>onProgressUpdate</code>, 从而在主线程更新进度等, 实现与主线程通信；</p>
-<h6 id="默认线程池的实现"><a href="#默认线程池的实现" class="headerlink" title="默认线程池的实现"></a>默认线程池的实现</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> BlockingQueue&lt;Runnable&gt; sPoolWorkQueue =</div><div class="line">            <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;(<span class="number">10</span>);</div><div class="line">...</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Executor THREAD_POOL_EXECUTOR</div><div class="line">        = <span class="keyword">new</span> ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE,</div><div class="line">                TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);</div></pre></td></tr></table></figure>
-<h6 id="AsyncTask相关类图"><a href="#AsyncTask相关类图" class="headerlink" title="AsyncTask相关类图"></a>AsyncTask相关类图</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/AsyncTask%E7%9B%B8%E5%85%B3%E7%B1%BB%E5%9B%BE.png?raw=true" alt="AsyncTask相关类图"></p>
+            <h6 id="activity-fragment-生命周期对比"><a href="#activity-fragment-生命周期对比" class="headerlink" title="activity fragment 生命周期对比"></a>activity fragment 生命周期对比</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/activity_fragment.png?raw=true" alt="activity_fragment 生命周期"></p>
+<p>onAttach<br>作用：<br>当fragment 第一次与 Activity 产生关联时调用，以后不再调用;</p>
+<p>onCreateView<br>onActivityCreated<br>作用：<br>表示窗口已经初始化完毕</p>
+<p>onDestoryView<br>onDetach</p>
 
           
         
@@ -1458,7 +1445,7 @@
   
 
   <article class="post post-type-archives " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/03/04/activity fragment 生命周期/">
+    <link itemprop="mainEntityOfPage" href="https://le773.github.io/thumb.github.io/thumb.github.io/2017/03/04/Android修改默认输入法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TLLANO">
@@ -1480,8 +1467,8 @@
             
               
                 
-                <a class="post-title-link" href="/thumb.github.io/2017/03/04/activity fragment 生命周期/" itemprop="url">
-                  activity fragment 生命周期对比
+                <a class="post-title-link" href="/thumb.github.io/2017/03/04/Android修改默认输入法/" itemprop="url">
+                  Android 修改默认输入法
                 </a>
               
             
@@ -1557,10 +1544,18 @@
       
         
           
-            <h6 id="activity-fragment-生命周期对比"><a href="#activity-fragment-生命周期对比" class="headerlink" title="activity fragment 生命周期对比"></a>activity fragment 生命周期对比</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/activity_fragment.png?raw=true" alt="activity_fragment 生命周期"></p>
-<p>onAttach<br>作用：<br>当fragment 第一次与 Activity 产生关联时调用，以后不再调用;</p>
-<p>onCreateView<br>onActivityCreated<br>作用：<br>表示窗口已经初始化完毕</p>
-<p>onDestoryView<br>onDetach</p>
+            <h6 id="修改SettingsProvider-defaults-xml"><a href="#修改SettingsProvider-defaults-xml" class="headerlink" title="修改SettingsProvider defaults.xml"></a>修改SettingsProvider defaults.xml</h6><p>路径<br>framework/base/packages/SettingsProvider/res/values/defaults.xml</p>
+<p>包名<br><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/default_input/default_input_pkg_name.png?raw=true" alt="default_method_pkg_name"></p>
+<p>service name<br><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/default_input/input_default.png?raw=true" alt="service_name"><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;string name="def_input_method" translatable="false"&gt;com.hitap.inputmethod.mi/com.funny.inputmet</div><div class="line">hod.imecontrol.FunnyIME&lt;/string&gt;</div></pre></td></tr></table></figure></p>
+<p>def_input_method 格式为 包名+service name, 其中service name 包含<code>&lt;action android:name=&quot;android.view.InputMethod&quot;/&gt;</code>;</p>
+<h6 id="加载-def-input-method-字符串"><a href="#加载-def-input-method-字符串" class="headerlink" title="加载 def_input_method 字符串"></a>加载 def_input_method 字符串</h6><p>路径<br>Frameworks/base/packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">loadStringSetting(stmt, Settings.Secure.DEFAULT_INPUT_METHOD,R.string.def_input_method);</div></pre></td></tr></table></figure></p>
+<h6 id="SettingsProvider数据库创建"><a href="#SettingsProvider数据库创建" class="headerlink" title="SettingsProvider数据库创建"></a>SettingsProvider数据库创建</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> SQLiteDatabase <span class="title">getDatabaseLocked</span><span class="params">(<span class="keyword">boolean</span> writable)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (mDatabase != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (!mDatabase.isOpen()) &#123;</div><div class="line">            <span class="comment">// Darn!  The user closed the database by calling mDatabase.close().</span></div><div class="line">            mDatabase = <span class="keyword">null</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!writable || !mDatabase.isReadOnly()) &#123;</div><div class="line">            <span class="comment">// The database is already open for business.</span></div><div class="line">            <span class="keyword">return</span> mDatabase;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (mIsInitializing) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"getDatabase called recursively"</span>);</div><div class="line">    &#125;</div><div class="line">    SQLiteDatabase db = mDatabase;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h6><p>路径<br>base/packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DatabaseHelper dbHelper = <span class="keyword">new</span> DatabaseHelper(getContext(), userId);</div><div class="line">SQLiteDatabase database = dbHelper.getWritableDatabase();</div><div class="line">migrateLegacySettingsForUserLocked(dbHelper, database, userId);</div></pre></td></tr></table></figure>
+<p>DatabaseHelper.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">DatabaseHelper</span><span class="params">(Context context, <span class="keyword">int</span> userHandle)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(context, dbNameForUser(userHandle), <span class="keyword">null</span>, DATABASE_VERSION);</div><div class="line">    mContext = context;</div><div class="line">    mUserHandle = userHandle;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DatabaseHelper</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">		loadSettings(db)</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// loadSettings</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadSettings</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">        mUtils = <span class="keyword">new</span> ProvidersUtils(mContext);</div><div class="line">        loadSystemSettings(db);</div><div class="line">        loadSecureSettings(db);</div><div class="line">        <span class="comment">// The global table only exists for the 'owner' user</span></div><div class="line">        <span class="keyword">if</span> (mUserHandle == UserHandle.USER_OWNER) &#123;</div><div class="line">            loadGlobalSettings(db);</div><div class="line">        &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// loadSecureSettings</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadSecureSettings</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">	    SQLiteStatement stmt = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">try</span> &#123;</div><div class="line">	        stmt = db.compileStatement(<span class="string">"INSERT OR IGNORE INTO secure(name,value)"</span></div><div class="line">	                + <span class="string">" VALUES(?,?);"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="数据库存放位置"><a href="#数据库存放位置" class="headerlink" title="数据库存放位置"></a>数据库存放位置</h6><p><img src="https://github.com/le773/le773Page/blob/master/2017/03/04/default_input/db_default_location.png?raw=true" alt="default_method_db_location"><br>存储的数据库应该是Setting.Global</p>
+<h6 id="修改APK的集成位置"><a href="#修改APK的集成位置" class="headerlink" title="修改APK的集成位置"></a>修改APK的集成位置</h6><p>不同位置的apk拥有的权限不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LOCAL_PRIVILEGED_MODULE := false  system/app</div><div class="line">LOCAL_PRIVILEGED_MODULE := true   system/priv-app</div></pre></td></tr></table></figure></p>
 
           
         
